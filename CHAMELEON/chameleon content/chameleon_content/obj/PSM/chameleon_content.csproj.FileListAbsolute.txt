@@ -1,5 +1,0 @@
-C:\Users\u0951505\Documents\Visual Studio 2013\Projects\CHAMELEON\chameleon content\chameleon_content\bin\PSM\Content\temp\bg.xnb
-C:\Users\u0951505\Documents\Visual Studio 2013\Projects\CHAMELEON\chameleon content\chameleon_content\bin\PSM\Content\temp\chameleon.png
-C:\Users\u0951505\Documents\Visual Studio 2013\Projects\CHAMELEON\chameleon content\chameleon_content\bin\PSM\IgnoreMe.dll
-C:\Users\u0951505\Documents\Visual Studio 2013\Projects\CHAMELEON\chameleon content\chameleon_content\obj\PSM\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\u0951505\Documents\Visual Studio 2013\Projects\CHAMELEON\chameleon content\chameleon_content\obj\PSM\IgnoreMe.dll
