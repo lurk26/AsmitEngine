@@ -1,4 +1,15 @@
 * text=auto !eol
+CHAMELEON/CHAMELEON.sln -text
+CHAMELEON/CHAMELEON/CHAMELEON.csproj -text
+CHAMELEON/CHAMELEON/Icon.ico -text
+CHAMELEON/CHAMELEON/Program.cs -text
+CHAMELEON/CHAMELEON/Properties/AssemblyInfo.cs -text
+CHAMELEON/CHAMELEON/main.cs -text
+CHAMELEON/chameleon[!!-~]content/chameleon_content/chameleon_content.csproj -text
+CHAMELEON/chameleon[!!-~]content/chameleon_content/chameleon_content.csproj.PSM.cachefile -text
+CHAMELEON/chameleon[!!-~]content/chameleon_contentContent/chameleon_contentContent.contentproj -text
+CHAMELEON/chameleon[!!-~]content/chameleon_contentContent/temp/bg.png -text
+CHAMELEON/chameleon[!!-~]content/chameleon_contentContent/temp/chameleon.png -text
 CPP_GAME_ENG_CLASS/CPP_GAME_ENG_CLASS.sln -text
 CPP_GAME_ENG_CLASS/GAME_ENG_PROJECT/build/project/GAME_ENG_PROJECT.vcxproj -text
 CPP_GAME_ENG_CLASS/GAME_ENG_PROJECT/build/project/GAME_ENG_PROJECT.vcxproj.filters -text
