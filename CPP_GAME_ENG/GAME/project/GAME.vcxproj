@@ -19,6 +19,11 @@
     <ClInclude Include="..\src\MonsterChase\MonsterChase.hpp" />
     <ClInclude Include="..\src\MonsterChase\Unit.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ENGINE\project\ENGINE.vcxproj">
+      <Project>{37c4f959-e2e9-4746-b6bc-9ac535953f77}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{11140A72-7B93-44FC-A8A7-4671B78E929B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
