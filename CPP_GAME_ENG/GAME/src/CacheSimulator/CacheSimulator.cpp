@@ -30,10 +30,11 @@ CacheSimulator::CacheSimulator()
     }
 
     
-    cout << "Enter the memory start location (hex): " << endl;
+    cout << "Enter the memory start location (hex): ";
     cin >> hex >> m_mem_start;
-    cout << "Enter the memory size (hex): " << endl;
+    cout << "\nEnter the memory size (hex): ";
     cin >> hex >> m_mem_size;
+    cout << endl;
 
     srand(time(NULL));
 
@@ -43,7 +44,7 @@ CacheSimulator::CacheSimulator()
     while (sim)
     {
         char command;
-        cout << " Press D to display cache, Q to quit, any other key to quit.\n";
+        cout << " Press D to display cache, Q to quit, any other key to simulate cache test.\n";
         cin >> command;
 
         switch (command)
