@@ -19,6 +19,8 @@ CPP_GAME_ENG/ENGINE/src/Engine.hpp -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.filters -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.user -text
+CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.cpp -text
+CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/MonsterChase.cpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/MonsterChase.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/Unit.cpp -text

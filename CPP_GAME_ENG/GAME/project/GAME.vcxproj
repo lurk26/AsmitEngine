@@ -11,11 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\CacheSimulator\CacheSimulator.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\MonsterChase\MonsterChase.cpp" />
     <ClCompile Include="..\src\MonsterChase\Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\CacheSimulator\CacheSimulator.hpp" />
     <ClInclude Include="..\src\MonsterChase\MonsterChase.hpp" />
     <ClInclude Include="..\src\MonsterChase\Unit.hpp" />
   </ItemGroup>
