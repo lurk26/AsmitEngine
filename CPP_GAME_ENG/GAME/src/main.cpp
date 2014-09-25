@@ -1,23 +1,18 @@
 #include "../../ENGINE/src/Engine.hpp"
 
-#include "CacheSimulator\CacheSimulator.hpp"
+#include "MonsterChase\MonsterChase.hpp"
 
 #include <iostream>
 
-void CreateSentence(char**, const char **, int);
+//void CreateSentence(char**, const char **, int);
 
 int main(int argv, char** argc)
 {
     Engine::Engine();
 
-    char ** words = new char*[]{ "This", "is", "a", "sentence" };
-    int num_words = 4;
-    char * sentence;
-    //CreateSentence(&sentence, (const char **)words, num_words);
-    
-    //std::cout << sentence;
+    new MonsterChase();
 
-    new CacheSimulator();
+    return 0;
 }
 
 

@@ -57,10 +57,10 @@ void MonsterChase::beginChase()
         case 'S': m_player.setY(m_player.getY()-1);
             break;
 
-        case 'A': m_player.setY(m_player.getX()-1);
+        case 'A': m_player.setX(m_player.getX()-1);
             break;
 
-        case 'D': m_player.setY(m_player.getX()+1);
+        case 'D': m_player.setX(m_player.getX()+1);
             break;
         case 'Q': play = false;
             break;

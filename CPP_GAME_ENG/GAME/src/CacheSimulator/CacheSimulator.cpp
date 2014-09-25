@@ -36,7 +36,7 @@ CacheSimulator::CacheSimulator()
     cin >> hex >> m_mem_size;
     cout << endl;
 
-    srand(time(NULL));
+    srand((int)time(NULL));
 
     initialize();
 
@@ -80,10 +80,10 @@ void CacheSimulator::initialize()
 
 void CacheSimulator::displayCache()
 {
-    for (int i = 0; i < set_count; i++)
+    for (unsigned int i = 0; i < set_count; i++)
     {
         cout << "\nSet [" << i << "]:" << endl;
-        for (int j = 0; j < lines_per_set; j++)
+        for (unsigned int j = 0; j < lines_per_set; j++)
         {
            
             std::stringstream stream;
@@ -100,9 +100,9 @@ void CacheSimulator::displayCache()
  void CacheSimulator::simulate()
 {
      double random = ((double)rand()) / RAND_MAX;
-     unsigned int rand_addr =  random* m_mem_size + m_mem_start;
+     unsigned int rand_addr =  (int)(random* m_mem_size) + m_mem_start;
 
-     int offset_bits = round(log2(line_width));
+     int offset_bits = (int)round(log2(line_width));
 
      int set_bits = (int)round(log2(set_count));
      
@@ -111,7 +111,7 @@ void CacheSimulator::displayCache()
      unsigned int set = (rand_addr & set_mask) >> offset_bits;
 
      unsigned int offset = ((1 << offset_bits) - 1) & rand_addr;
-     unsigned int tag_mask= ~((1 << offset_bits + set_bits) - 1);
+     unsigned int tag_mask= ~(((1 << offset_bits) + set_bits) - 1);
 
      unsigned tag = (rand_addr & tag_mask) >> (offset_bits + set_bits);
 
@@ -124,7 +124,7 @@ void CacheSimulator::displayCache()
  void CacheSimulator::populate(unsigned int set, unsigned tag)
  {
      
-     for (int i = 0; i < lines_per_set; i++)
+     for (unsigned int i = 0; i < lines_per_set; i++)
      {
          if (sets[set].tags[i] == tag)
          {

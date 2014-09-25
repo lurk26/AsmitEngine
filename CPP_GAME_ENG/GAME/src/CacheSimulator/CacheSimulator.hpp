@@ -6,8 +6,8 @@ class CacheSimulator
 {
 private:
 
-    int line_width = 0, set_count = 0, lines_per_set = 0;
-    int m_mem_start, m_mem_size;
+    unsigned int line_width = 0, set_count = 0, lines_per_set = 0;
+    unsigned int m_mem_start, m_mem_size;
 
     struct Set
     {
