@@ -82,9 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp" />
+    <ClCompile Include="..\src\utils\Vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp" />
+    <ClInclude Include="..\src\utils\Vec3.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

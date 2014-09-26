@@ -32,9 +32,10 @@ void MonsterChase::showCurrentLocations()
     std::cout << "Monsters are at: \n";
     for (unsigned int i = 0; i < m_num_monsters; i++)
     {
-        std::cout<< i <<": (" <<m_monsters[i].getX() << "," << m_monsters[i].getY()<< ")\n";
+        Vec3 pos = m_monsters[i].getXYZ();
+        std::cout<< i <<": (" <<pos.getX() << "," << pos.getY()<< ")\n";
     }
-    std::cout << "Player at: (" << m_player.getX() << "," << m_player.getY() << ")\n";
+    std::cout << "Player at: (" << m_player.getXYZ().getX() << "," << m_player.getXYZ().getY() << ")\n";
 }
 void MonsterChase::beginChase()
 {
@@ -50,21 +51,23 @@ void MonsterChase::beginChase()
         char input;
         std::cin >> input;
 
+        Vec3 player_pos = m_player.getXYZ();
         switch (input)
         {
-        case 'W': m_player.setY(m_player.getY()+1);
+        case 'W': player_pos.setY(player_pos.getY()+1);
             break;
-        case 'S': m_player.setY(m_player.getY()-1);
-            break;
-
-        case 'A': m_player.setX(m_player.getX()-1);
+        case 'S': player_pos.setY(player_pos.getY() -1);
             break;
 
-        case 'D': m_player.setX(m_player.getX()+1);
+        case 'A': player_pos.setX(player_pos.getX() + 1);
+            break;
+
+        case 'D': player_pos.setX(player_pos.getY() - 1);;
             break;
         case 'Q': play = false;
             break;
         }
+        m_player.setXYZ(player_pos);
     }
 
     
