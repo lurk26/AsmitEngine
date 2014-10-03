@@ -1,8 +1,10 @@
-#include "../../ENGINE/src/Engine.hpp"
+#include <crtdbg.h>
 
+#include "../../ENGINE/src/Engine.hpp"
 #include "MonsterChase\monster_chase.hpp"
 
 #include <iostream>
+
 
 //void CreateSentence(char**, const char **, int);
 
@@ -10,8 +12,12 @@ int main(int argv, char** argc)
 {
     Engine::Engine();
 
-    new MonsterChase();
-
+    MonsterChase * game = new MonsterChase();
+    game->beginChase();
+    delete game;
+    
+    _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
+    _CrtDumpMemoryLeaks();
     return 0;
 }
 

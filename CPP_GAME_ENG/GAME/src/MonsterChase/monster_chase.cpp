@@ -18,7 +18,6 @@ MonsterChase::MonsterChase()
     m_player->setController(new PlayerController(m_player));
     std::cout << "Initializing player at (0,0)\n";
 
-    beginChase();
 }
 
 void MonsterChase::initializeMonsters()
@@ -47,18 +46,32 @@ void MonsterChase::showCurrentLocations()
 void MonsterChase::beginChase()
 {
     bool play = true;
+
+    
     while (play)
     {
-        showCurrentLocations();
         for (unsigned int i = 0; i < m_num_monsters; i++)
         {
             m_monsters[i]->update();
         }
+        
         m_player->update();
+        showCurrentLocations();
+        std::cout << "Enter Q to quit or any key to continue" << std::endl;
+        char check;
+        std::cin >> check;
+        if (check == 'Q') return;
+
+        
+        
     }
 
     
 }
 MonsterChase::~MonsterChase()
 {
+    for (unsigned int i = 0; i < m_monsters.size(); i++)
+        delete m_monsters[i];
+
+    delete m_player;
 }

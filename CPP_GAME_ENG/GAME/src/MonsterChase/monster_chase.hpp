@@ -16,11 +16,11 @@ private:
 
     void    initializeMonsters();
     void    showCurrentLocations();
-    void    beginChase();
-
+    
 public:
 	MonsterChase();
 	~MonsterChase();
+    void    beginChase();
 
     
 };

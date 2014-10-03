@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{676ce984-0c35-44a9-b9e0-064b338d91ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{3203e4ed-327f-45ec-85c1-beb99b13d6f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\objects">
+      <UniqueIdentifier>{4528ce73-660f-4062-9ffc-8d804ce2e28d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\objects">
+      <UniqueIdentifier>{3c671b3b-e77f-4193-a042-95605baf1096}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -22,10 +34,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\utils\Vec3.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
     <ClCompile Include="..\src\objects\Moveable.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -33,10 +45,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\utils\Vec3.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\src\objects\Moveable.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -24,6 +24,8 @@ Unit::Unit(float x, float y)
 
 Unit::~Unit()
 {
+    delete m_body;
+    delete m_controller;
 }
 
 
