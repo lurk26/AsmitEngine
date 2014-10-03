@@ -24,24 +24,36 @@
     <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\MonsterChase\MonsterChase.cpp">
-      <Filter>Source Files\MonsterChase</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\MonsterChase\Unit.cpp">
       <Filter>Source Files\MonsterChase</Filter>
     </ClCompile>
     <ClCompile Include="..\src\CacheSimulator\CacheSimulator.cpp">
       <Filter>Source Files\CacheSimulator</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MonsterChase\controller\Controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MonsterChase\monster_chase.cpp">
+      <Filter>Source Files\MonsterChase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MonsterChase\controller\random_move_ai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\MonsterChase\MonsterChase.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\MonsterChase\Unit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\CacheSimulator\CacheSimulator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MonsterChase\controller\Controller.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MonsterChase\monster_chase.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MonsterChase\controller\random_move_ai.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
