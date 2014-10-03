@@ -1,4 +1,5 @@
-
+#ifndef HEADER_MOVEABLE_HPP
+#define HEADER_MOVEABLE_HPP
 
 #include "utils/vec3.hpp"
 
@@ -23,3 +24,4 @@ public:
     void        update();
 };
 
+#endif

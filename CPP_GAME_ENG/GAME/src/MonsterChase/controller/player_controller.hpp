@@ -1,4 +1,6 @@
-#pragma once
+#ifndef HEADER_PLAYER_CONTROLLER_HPP
+#define HEADER_PLAYER_CONTROLLER_HPP
+
 #include "Controller.hpp"
 
 class Unit;
@@ -12,3 +14,4 @@ public:
     void        update();
 };
 
+#endif

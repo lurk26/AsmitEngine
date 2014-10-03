@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HEADER_MONSTER_CHASE_HPP
+#define HEADER_MONSTER_CHASE_HPP
 
 #include <vector>
 
@@ -24,3 +25,4 @@ public:
     
 };
 
+#endif
