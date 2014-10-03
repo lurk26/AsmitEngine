@@ -27,8 +27,6 @@ CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.cpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.hpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/Set.cpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/Set.hpp -text
-CPP_GAME_ENG/GAME/src/MonsterChase/MonsterChase.cpp -text
-CPP_GAME_ENG/GAME/src/MonsterChase/MonsterChase.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/Unit.cpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/Unit.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/controller/Controller.cpp -text
