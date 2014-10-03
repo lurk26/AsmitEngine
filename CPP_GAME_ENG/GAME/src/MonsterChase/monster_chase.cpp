@@ -3,6 +3,7 @@
 #include "Unit.hpp"
 #include "controller\Controller.hpp"
 #include "controller\random_move_ai.hpp"
+#include "controller\player_controller.hpp"
 
 #include <iostream>
 
@@ -13,7 +14,8 @@ MonsterChase::MonsterChase()
     std::cin >> m_num_monsters;
     initializeMonsters();
 
-    m_player = new Unit(0, 0);
+    m_player = new Unit(0.0f, 0.0f);
+    m_player->setController(new PlayerController(m_player));
     std::cout << "Initializing player at (0,0)\n";
 
     beginChase();
@@ -26,6 +28,7 @@ void MonsterChase::initializeMonsters()
     {
         Unit* monster = new Unit(1, 1);
         Controller* randomController = new RandomMoveAI(monster);
+        monster->setController(randomController);
         m_monsters.push_back(monster);
     }
 }
@@ -38,6 +41,7 @@ void MonsterChase::showCurrentLocations()
         Vec3 pos = m_monsters[i]->getXYZ();
         std::cout<< i <<": (" <<pos.getX() << "," << pos.getY()<< ")\n";
     }
+
     std::cout << "Player at: (" << m_player->getXYZ().getX() << "," << m_player->getXYZ().getY() << ")\n";
 }
 void MonsterChase::beginChase()
@@ -50,27 +54,7 @@ void MonsterChase::beginChase()
         {
             m_monsters[i]->update();
         }
-        std::cout << "Enter W-A-S-D for up-left-down-right or Q to quit: ";
-        char input;
-        std::cin >> input;
-
-        Vec3 player_pos = m_player->getXYZ();
-        switch (input)
-        {
-        case 'W': player_pos.setY(player_pos.getY()+1);
-            break;
-        case 'S': player_pos.setY(player_pos.getY() -1);
-            break;
-
-        case 'A': player_pos.setX(player_pos.getX() + 1);
-            break;
-
-        case 'D': player_pos.setX(player_pos.getY() - 1);;
-            break;
-        case 'Q': play = false;
-            break;
-        }
-        m_player->setXYZ(player_pos);
+        m_player->update();
     }
 
     

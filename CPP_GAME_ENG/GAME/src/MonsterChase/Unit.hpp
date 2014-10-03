@@ -18,16 +18,15 @@ public:
 
     Unit(float x, float y);
     
-    const Vec3& getXYZ()    { return m_body->getPosition(); }
-    void        setXYZ(const Vec3& v) { m_body->setPosition(v); }
+    const Vec3&     getXYZ()                        { return m_body->getPosition(); }
+    const Vec3&     getVelocity()                   { return m_body->getVelocity(); }
 
-    const Vec3& getVelocity()    { return m_body->getVelocity(); }
-    void        setVelocity(const Vec3& v) { m_body->setVelocity(v); }
+    void            setXYZ(const Vec3& v)           { m_body->setPosition(v); }
+    void            setVelocity(const Vec3& v)      { m_body->setVelocity(v); }
 
+    void            setController(Controller* c)    { m_controller = c; }
 
-    void    moveUnitRandomly();
-
-    void    update();
+    void       update();
     
 };
 

@@ -39,6 +39,9 @@
     <ClCompile Include="..\src\MonsterChase\controller\random_move_ai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MonsterChase\controller\player_controller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\MonsterChase\Unit.hpp">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\MonsterChase\controller\random_move_ai.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MonsterChase\controller\player_controller.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

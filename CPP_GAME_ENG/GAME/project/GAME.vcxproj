@@ -14,6 +14,7 @@
     <ClCompile Include="..\src\CacheSimulator\CacheSimulator.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\MonsterChase\controller\Controller.cpp" />
+    <ClCompile Include="..\src\MonsterChase\controller\player_controller.cpp" />
     <ClCompile Include="..\src\MonsterChase\controller\random_move_ai.cpp" />
     <ClCompile Include="..\src\MonsterChase\monster_chase.cpp" />
     <ClCompile Include="..\src\MonsterChase\Unit.cpp" />
@@ -21,6 +22,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\CacheSimulator\CacheSimulator.hpp" />
     <ClInclude Include="..\src\MonsterChase\controller\Controller.hpp" />
+    <ClInclude Include="..\src\MonsterChase\controller\player_controller.hpp" />
     <ClInclude Include="..\src\MonsterChase\controller\random_move_ai.hpp" />
     <ClInclude Include="..\src\MonsterChase\monster_chase.hpp" />
     <ClInclude Include="..\src\MonsterChase\Unit.hpp" />

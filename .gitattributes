@@ -33,6 +33,8 @@ CPP_GAME_ENG/GAME/src/MonsterChase/Unit.cpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/Unit.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/controller/Controller.cpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/controller/Controller.hpp -text
+CPP_GAME_ENG/GAME/src/MonsterChase/controller/player_controller.cpp -text
+CPP_GAME_ENG/GAME/src/MonsterChase/controller/player_controller.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/controller/random_move_ai.cpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/controller/random_move_ai.hpp -text
 CPP_GAME_ENG/GAME/src/MonsterChase/monster_chase.cpp -text
