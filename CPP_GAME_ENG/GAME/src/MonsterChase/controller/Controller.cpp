@@ -3,5 +3,5 @@
 
 Controller::~Controller()
 {
-
+    delete m_name;
 }

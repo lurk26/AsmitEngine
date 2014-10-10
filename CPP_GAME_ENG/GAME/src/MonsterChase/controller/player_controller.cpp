@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-PlayerController::PlayerController(Unit* unit) : Controller(unit)
+PlayerController::PlayerController(Unit* unit, const char* name) : Controller(unit,name)
 {
 }
 

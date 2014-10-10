@@ -8,7 +8,7 @@ class PlayerController :
     public Controller
 {
 public:
-    PlayerController(Unit* unit);
+    PlayerController(Unit* unit, const char* name);
     ~PlayerController();
 
     void        update();

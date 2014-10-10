@@ -7,7 +7,7 @@ class RandomMoveAI :
     public Controller
 {
 public:
-    RandomMoveAI::RandomMoveAI(Unit* unit);
+    RandomMoveAI::RandomMoveAI(Unit* unit, const char* name);
     ~RandomMoveAI();
 
     void    update();

@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 
-RandomMoveAI::RandomMoveAI(Unit* unit) :Controller(unit)
+RandomMoveAI::RandomMoveAI(Unit* unit, const char* name) :Controller(unit,name)
 {
 }
 

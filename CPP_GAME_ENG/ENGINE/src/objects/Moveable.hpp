@@ -19,7 +19,7 @@ public:
     const Vec3&        getPosition() const             { return m_position; }
 
     void        setPosition(const Vec3& pos)    { m_position = pos; }
-    void        setVelocity(const Vec3& vel)    { m_position = vel; }
+    void        setVelocity(const Vec3& vel)    { m_velocity = vel; }
 
     void        update();
 };

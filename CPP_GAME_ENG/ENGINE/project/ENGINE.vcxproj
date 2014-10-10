@@ -80,9 +80,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp" />
     <ClCompile Include="..\src\objects\Moveable.cpp" />
     <ClCompile Include="..\src\utils\Vec3.cpp" />
