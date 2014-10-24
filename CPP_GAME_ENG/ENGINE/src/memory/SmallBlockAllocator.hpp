@@ -1,9 +1,10 @@
 #ifndef HEADER_SMALL_BLOCK_ALLOCATOR_HPP
 #define HEADER_SMALL_BLOCK_ALLOCATOR_HPP
 
+#include "BitField.hpp"
 #include <cstdlib>
 
-class BitField;
+//class Bitfield;
 
 class SmallBlockAllocator
 {
@@ -11,7 +12,7 @@ class SmallBlockAllocator
 private:
 
     void *      m_p_memory;
-    BitField *  m_bitfield;
+    BitField*   m_bitfield;
     size_t      m_block_size;
     size_t      m_block_count;
 
@@ -26,22 +27,5 @@ public:
 
 
 };
-
-SmallBlockAllocator::SmallBlockAllocator(size_t block_size, size_t block_count, void * p_memory, BitField * bitfield)
-{
-    m_block_size = block_size;
-    m_block_count = block_count;
-    m_p_memory = p_memory;
-    m_bitfield = bitfield;
-}
-
-SmallBlockAllocator::~SmallBlockAllocator()
-{
-
-    //TODO: Check bitfield to make sure no blocks are given out
-    _aligned_free(m_p_memory);
-
-    delete m_bitfield;
-}
 
 #endif HEADER_SMALL_BLOCK_ALLOCATOR_HPP
