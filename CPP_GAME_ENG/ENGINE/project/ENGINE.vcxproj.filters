@@ -25,6 +25,9 @@
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{3c671b3b-e77f-4193-a042-95605baf1096}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\memory">
+      <UniqueIdentifier>{2063b373-996b-4581-95ba-fde03138c5f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp">
@@ -36,6 +39,12 @@
     <ClCompile Include="..\src\objects\Moveable.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\BitField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp">
@@ -46,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="..\src\objects\Moveable.hpp">
       <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\BitField.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

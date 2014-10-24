@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HEADER_ENGINE_HPP
+#define HEADER_ENGINE_HPP
 
 #ifdef _DEBUG
 #ifndef DBG_NEW
@@ -14,3 +15,4 @@ public:
     ~Engine();
 };
 
+#endif HEADER_ENGINE_HPP

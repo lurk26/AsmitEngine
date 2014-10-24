@@ -81,11 +81,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp" />
+    <ClCompile Include="..\src\memory\BitField.cpp" />
+    <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp" />
     <ClCompile Include="..\src\objects\Moveable.cpp" />
     <ClCompile Include="..\src\utils\Vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp" />
+    <ClInclude Include="..\src\memory\BitField.hpp" />
+    <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp" />
     <ClInclude Include="..\src\objects\Moveable.hpp" />
     <ClInclude Include="..\src\utils\Vec3.hpp" />
   </ItemGroup>
