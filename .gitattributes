@@ -16,6 +16,8 @@ CPP_GAME_ENG/ENGINE/project/ENGINE.vcxproj -text
 CPP_GAME_ENG/ENGINE/project/ENGINE.vcxproj.filters -text
 CPP_GAME_ENG/ENGINE/src/Engine.cpp -text
 CPP_GAME_ENG/ENGINE/src/Engine.hpp -text
+CPP_GAME_ENG/ENGINE/src/memory/Allocators.cpp -text
+CPP_GAME_ENG/ENGINE/src/memory/Allocators.h -text
 CPP_GAME_ENG/ENGINE/src/memory/BitField.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/BitField.hpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text

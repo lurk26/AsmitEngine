@@ -3,7 +3,7 @@
 BitField::BitField(size_t memory_block_count, void * memory)
 {
     m_memory = reinterpret_cast<unsigned int*>(memory);
-    m_num_blocks = memory_block_count;
+    m_num_elements = memory_block_count;
 }
 
 BitField::~BitField()
