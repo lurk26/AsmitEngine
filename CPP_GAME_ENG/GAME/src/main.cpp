@@ -14,7 +14,8 @@ int main(int argv, char** argc)
     MonsterChase * game = new MonsterChase();
     game->beginChase();
     delete game;
-    
+    Engine::shutdown();
+
 #ifdef _DEBUG
     _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
     _CrtDumpMemoryLeaks();

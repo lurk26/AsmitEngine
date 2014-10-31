@@ -76,7 +76,15 @@ bool  SmallBlockAllocator::contains(void * ptr)
 
 }
 
-size_t SmallBlockAllocator::numBlocksFree()
+// standard new & delete
+void * SmallBlockAllocator::operator new(size_t i_size)
 {
+    return _aligned_malloc(i_size, 4);
+}
 
+void SmallBlockAllocator::operator delete(void * i_ptr)
+{
+    // don't delete NULL pointers. i guess we could also assert
+    if (i_ptr)
+        _aligned_free(i_ptr);
 }

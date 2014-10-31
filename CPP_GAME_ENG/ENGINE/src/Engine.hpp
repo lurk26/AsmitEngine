@@ -18,6 +18,7 @@ class Engine
 public:
     Engine();
     ~Engine();
+    static void shutdown();
 };
 
 #endif HEADER_ENGINE_HPP

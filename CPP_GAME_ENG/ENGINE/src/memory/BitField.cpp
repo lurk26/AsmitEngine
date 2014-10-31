@@ -29,3 +29,16 @@ BitField* BitField::create(size_t memory_block_count)
     return new BitField(memory_block_count, memory);
 
 }
+
+// standard new & delete
+void * BitField::operator new(size_t i_size)
+{
+    return _aligned_malloc(i_size, 4);
+}
+
+void BitField::operator delete(void * i_ptr)
+{
+    // don't delete NULL pointers. i guess we could also assert
+    if (i_ptr)
+        _aligned_free(i_ptr);
+}

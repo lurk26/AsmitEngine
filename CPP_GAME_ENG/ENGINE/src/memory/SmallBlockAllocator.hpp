@@ -28,6 +28,11 @@ public:
     bool        contains(void * ptr);
     size_t      numBlocksFree() { return m_block_count - m_blocks_allocated; }
 
+    // standard new & delete
+    void * operator new(size_t i_size);
+
+    void operator delete(void * i_ptr);
+
 };
 
 #endif HEADER_SMALL_BLOCK_ALLOCATOR_HPP

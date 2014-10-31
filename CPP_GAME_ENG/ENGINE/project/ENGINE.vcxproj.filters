@@ -28,6 +28,9 @@
     <Filter Include="Header Files\memory">
       <UniqueIdentifier>{2063b373-996b-4581-95ba-fde03138c5f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{5bfa4b2d-9b28-4730-a399-5c1cbb77e3c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp">
@@ -40,10 +43,16 @@
       <Filter>Source Files\objects</Filter>
     </ClCompile>
     <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\Allocators.cpp">
+      <Filter>Source Files\memory</Filter>
     </ClCompile>
     <ClCompile Include="..\src\memory\BitField.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\memory\BlockAllocators.cpp">
+      <Filter>Source Files\memory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +65,16 @@
     <ClInclude Include="..\src\objects\Moveable.hpp">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp">
+    <ClInclude Include="..\src\memory\BitField.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\memory\BitField.hpp">
+    <ClInclude Include="..\src\memory\Allocators.h">
+      <Filter>Header Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp">
+      <Filter>Header Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\BlockAllocators.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,8 +7,8 @@
 class BitField
 {
 private:
-    uint32_t *     m_memory;
     size_t         m_num_elements;
+    uint32_t *     m_memory;
     BitField(size_t memory_block_count, void * memory);
 public:
     
@@ -20,6 +20,12 @@ public:
     bool                   setElement(size_t index);
     bool                   releaseElement(size_t index);
     bool                   isEmpty();
+
+    // standard new & delete
+    void * operator new(size_t i_size);
+
+    void operator delete(void * i_ptr);
+
 };
 
 inline bool BitField::operator[](size_t index)
@@ -70,8 +76,13 @@ inline bool BitField::releaseElement(size_t index)
 inline bool BitField::isEmpty()
 {
     size_t element = 0;
-    while (m_memory[element] == 0)
+    while (element < m_num_elements)
+    {
+        if (m_memory[element] != 0) return false;
         element++;
-    if (element != m_num_elements) false;
+    }
+
+    return true;
+
 }
 #endif HEADER_BIT_FIELD_HPP

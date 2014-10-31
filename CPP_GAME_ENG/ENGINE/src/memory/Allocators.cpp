@@ -1,20 +1,36 @@
 #include <malloc.h>		// for _aligned_malloc
 #include <stdio.h>		// for printf
 
+#include "BlockAllocators.hpp"
+
 // standard new & delete
 void * operator new(size_t i_size)
 {
 	printf("Calling new( size_t ) with size %d.\n\n", i_size);
 
+    if (i_size <= 8)
+    {
+        return _8_Byte_Allocator->_alloc();
+    }
+    if (i_size > 8 && i_size <= 16)
+    {
+        return _16_Byte_Allocator->_alloc();
+    }
 	return _aligned_malloc(i_size, 4);
 }
 
 void operator delete(void * i_ptr)
 {
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
-
-	// don't delete NULL pointers. i guess we could also assert
-	if (i_ptr)
+    if (_8_Byte_Allocator->contains(i_ptr))
+    {
+        _8_Byte_Allocator->_free(i_ptr);
+    }
+    else if (_16_Byte_Allocator->contains(i_ptr))
+    {
+        _16_Byte_Allocator->_free(i_ptr);
+    }
+    else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
 		_aligned_free(i_ptr);
 }
 
