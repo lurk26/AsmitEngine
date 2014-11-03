@@ -1,7 +1,8 @@
 #include "Controller.hpp"
 
+#include <cstdlib>
 
 Controller::~Controller()
 {
-    delete m_name;
+    free((void*)m_name);
 }

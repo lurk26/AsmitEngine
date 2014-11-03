@@ -20,6 +20,8 @@ CPP_GAME_ENG/ENGINE/src/memory/Allocators.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/Allocators.h -text
 CPP_GAME_ENG/ENGINE/src/memory/BitField.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/BitField.hpp -text
+CPP_GAME_ENG/ENGINE/src/memory/BlockAllocators.cpp -text
+CPP_GAME_ENG/ENGINE/src/memory/BlockAllocators.hpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.hpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.cpp -text
