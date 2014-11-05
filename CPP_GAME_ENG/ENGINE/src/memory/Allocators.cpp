@@ -8,29 +8,34 @@
 void * operator new(size_t i_size)
 {
 	printf("Calling new( size_t ) with size %d.\n\n", i_size);
-
-    if (i_size <= 8)
-    {
-        return BlockAllocators::get()->getSMBAllocator(8)->_alloc();
-    }
-    if (i_size > 8 && i_size <= 16)
-    {
-        return BlockAllocators::get()->getSMBAllocator(16)->_alloc();
-    }
+	if (BlockAllocators::get())
+	{
+		if (i_size <= 8)
+		{
+			return BlockAllocators::get()->getSMBAllocator(8)->_alloc();
+		}
+		if (i_size > 8 && i_size <= 16)
+		{
+			return BlockAllocators::get()->getSMBAllocator(16)->_alloc();
+		}
+	}
 	return _aligned_malloc(i_size, 4);
 }
 
 void operator delete(void * i_ptr)
 {
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
-    if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
-    {
-        BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
-    }
-    else if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
-    {
-        BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
-    }
+	if (BlockAllocators::get())
+	{
+		if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
+		{
+			BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
+		}
+		else if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
+		{
+			BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
+		}
+	}
     else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
 		_aligned_free(i_ptr);
 }
