@@ -1,5 +1,7 @@
 #include "BitField.hpp"
 
+#include <cstring>
+
 BitField::BitField(size_t memory_block_count, void * memory)
 {
     m_memory = reinterpret_cast<unsigned int*>(memory);
@@ -25,7 +27,7 @@ BitField* BitField::create(size_t memory_block_count)
     void * memory = _aligned_malloc(num_ints*sizeof(unsigned int), 64);
     if (memory == NULL)
         return NULL;
-
+    memset(memory, 0, num_ints*sizeof(unsigned int));
     return new BitField(memory_block_count, memory);
 
 }

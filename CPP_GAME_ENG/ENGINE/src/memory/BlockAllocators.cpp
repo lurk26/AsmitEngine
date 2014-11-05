@@ -1,23 +1,46 @@
 #include "BlockAllocators.hpp"
 
 #include <cassert>
-/*
+
+BlockAllocators * BlockAllocators::m_block_allocators = NULL;
+
 BlockAllocators::BlockAllocators()
 {
+    std::map<int, int> SMBA;
+    //SMBA[8] = NULL;
+    SMBAllocator[8] = SmallBlockAllocator::create(8, 1000);
+    SMBAllocator[16] = SmallBlockAllocator::create(16, 1000);
 }
 
 
 BlockAllocators::~BlockAllocators()
 {
-
+    delete SMBAllocator[8];
+    delete SMBAllocator[16];
 }
 
 void BlockAllocators::create()
 {
     assert(m_block_allocators == NULL);
-    _8_Byte_Allocator = SmallBlockAllocator::create(8, 1000);
-    _16_Byte_Allocator = SmallBlockAllocator::create(16, 1000);
 
     m_block_allocators = new BlockAllocators();
 }
-*/
+
+void BlockAllocators::destroy()
+{
+    assert(m_block_allocators != NULL);
+    delete m_block_allocators;
+}
+
+// standard new & delete
+void * BlockAllocators::operator new(size_t i_size)
+{
+    return _aligned_malloc(i_size, 4);
+}
+
+void BlockAllocators::operator delete(void * i_ptr)
+{
+    // don't delete NULL pointers. i guess we could also assert
+    if (i_ptr)
+        _aligned_free(i_ptr);
+}

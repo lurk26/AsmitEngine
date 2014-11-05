@@ -1,6 +1,7 @@
 #include <malloc.h>		// for _aligned_malloc
 #include <stdio.h>		// for printf
 
+#include "Allocators.h"
 #include "BlockAllocators.hpp"
 
 // standard new & delete
@@ -10,11 +11,11 @@ void * operator new(size_t i_size)
 
     if (i_size <= 8)
     {
-        return _8_Byte_Allocator->_alloc();
+        return BlockAllocators::get()->getSMBAllocator(8)->_alloc();
     }
     if (i_size > 8 && i_size <= 16)
     {
-        return _16_Byte_Allocator->_alloc();
+        return BlockAllocators::get()->getSMBAllocator(16)->_alloc();
     }
 	return _aligned_malloc(i_size, 4);
 }
@@ -22,13 +23,13 @@ void * operator new(size_t i_size)
 void operator delete(void * i_ptr)
 {
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
-    if (_8_Byte_Allocator->contains(i_ptr))
+    if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
     {
-        _8_Byte_Allocator->_free(i_ptr);
+        BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
     }
-    else if (_16_Byte_Allocator->contains(i_ptr))
+    else if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
     {
-        _16_Byte_Allocator->_free(i_ptr);
+        BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
     }
     else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
 		_aligned_free(i_ptr);
@@ -52,13 +53,6 @@ void operator delete[](void * i_ptr)
 	if (i_ptr)
 		_aligned_free(i_ptr);
 }
-
-enum NewAlignment
-{
-	NEW_ALIGN_DEFAULT,
-	NEW_ALIGN_16 = 16,
-	NEW_ALIGN_32 = 32
-};
 
 void * operator new(size_t i_size, NewAlignment i_align)
 {

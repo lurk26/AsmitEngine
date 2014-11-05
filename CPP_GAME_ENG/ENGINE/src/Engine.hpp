@@ -1,8 +1,6 @@
 #ifndef HEADER_ENGINE_HPP
 #define HEADER_ENGINE_HPP
 
-#include"memory\Allocators.h"
-
 /*
 #ifdef _DEBUG
 #ifndef DBG_NEW
@@ -11,6 +9,9 @@
 #endif
 #endif 
 */
+
+
+#include"memory\Allocators.h"
 
 
 class Engine

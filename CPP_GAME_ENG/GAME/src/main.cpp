@@ -1,4 +1,7 @@
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
 #include <crtdbg.h>
+
 
 #include "../../ENGINE/src/Engine.hpp"
 #include "MonsterChase\monster_chase.hpp"
@@ -6,10 +9,10 @@
 #include <iostream>
 
 
-static char input;
 
 int main(int argv, char** argc)
 {
+    //_CrtSetBreakAlloc(153);
     Engine::Engine();
     MonsterChase * game = new MonsterChase();
     game->beginChase();
