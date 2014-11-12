@@ -12,7 +12,7 @@
 
 int main(int argv, char** argc)
 {
-    //_CrtSetBreakAlloc(153);
+    _CrtSetBreakAlloc(224);
     Engine::Engine();
     MonsterChase * game = new MonsterChase();
     game->beginChase();

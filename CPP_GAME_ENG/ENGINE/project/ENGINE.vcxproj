@@ -86,6 +86,8 @@
     <ClCompile Include="..\src\memory\BlockAllocators.cpp" />
     <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp" />
     <ClCompile Include="..\src\objects\Moveable.cpp" />
+    <ClCompile Include="..\src\utils\Assert\Assert.Win32.cpp" />
+    <ClCompile Include="..\src\utils\Console\ConsolePrint.Win32.cpp" />
     <ClCompile Include="..\src\utils\Vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +97,10 @@
     <ClInclude Include="..\src\memory\BlockAllocators.hpp" />
     <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp" />
     <ClInclude Include="..\src\objects\Moveable.hpp" />
+    <ClInclude Include="..\src\utils\Assert\Assert.h" />
+    <ClInclude Include="..\src\utils\Console\ConsolePrint.h" />
+    <ClInclude Include="..\src\utils\Target\Target.h" />
+    <ClInclude Include="..\src\utils\Target\Target.Win32.h" />
     <ClInclude Include="..\src\utils\Vec3.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

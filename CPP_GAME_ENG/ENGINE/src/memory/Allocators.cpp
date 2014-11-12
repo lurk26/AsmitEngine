@@ -27,13 +27,15 @@ void operator delete(void * i_ptr)
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
 	if (BlockAllocators::get())
 	{
-		if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
+        if (BlockAllocators::get()->getSMBAllocator(8) && 
+            BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
 		{
 			BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
 		}
-		else if (BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
+        else if (BlockAllocators::get()->getSMBAllocator(16) && 
+                BlockAllocators::get()->getSMBAllocator(16)->contains(i_ptr))
 		{
-			BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
+			BlockAllocators::get()->getSMBAllocator(16)->_free(i_ptr);
 		}
 	}
     else if (i_ptr) // don't delete NULL pointers. i guess we could also assert

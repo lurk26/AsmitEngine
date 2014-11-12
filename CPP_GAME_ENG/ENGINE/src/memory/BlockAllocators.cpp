@@ -6,8 +6,6 @@ BlockAllocators * BlockAllocators::m_block_allocators = NULL;
 
 BlockAllocators::BlockAllocators()
 {
-    std::map<int, int> SMBA;
-    //SMBA[8] = NULL;
     SMBAllocator[8] = SmallBlockAllocator::create(8, 1000);
     SMBAllocator[16] = SmallBlockAllocator::create(16, 1000);
 }
@@ -17,6 +15,7 @@ BlockAllocators::~BlockAllocators()
 {
     delete SMBAllocator[8];
     delete SMBAllocator[16];
+    SMBAllocator.clear();
 }
 
 void BlockAllocators::create()
@@ -30,6 +29,7 @@ void BlockAllocators::destroy()
 {
     assert(m_block_allocators != NULL);
     delete m_block_allocators;
+    m_block_allocators = NULL;
 }
 
 // standard new & delete

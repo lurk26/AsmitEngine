@@ -54,6 +54,12 @@
     <ClCompile Include="..\src\memory\BlockAllocators.cpp">
       <Filter>Source Files\memory</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\utils\Assert\Assert.Win32.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\Console\ConsolePrint.Win32.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp">
@@ -76,6 +82,18 @@
     </ClInclude>
     <ClInclude Include="..\src\memory\BlockAllocators.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\Assert\Assert.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\Console\ConsolePrint.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\Target\Target.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\Target\Target.Win32.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

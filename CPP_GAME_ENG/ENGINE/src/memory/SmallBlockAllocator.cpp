@@ -2,6 +2,8 @@
 
 #include "BitField.hpp"
 
+#include "utils\Console\ConsolePrint.h"
+#include "utils\Assert\Assert.h"
 #include <cassert>
 
 SmallBlockAllocator* SmallBlockAllocator::create(size_t block_size, size_t block_count)
@@ -36,7 +38,7 @@ SmallBlockAllocator::~SmallBlockAllocator()
 {
 
     //TODO: Check bitfield to make sure no blocks are given out
-    assert(m_bitfield->isEmpty());
+    MessagedAssert(m_bitfield->isEmpty(), "Trying to empty allocator but bitfield not clear!");
     _aligned_free(m_p_memory);
 
     delete m_bitfield;
@@ -58,7 +60,7 @@ void SmallBlockAllocator::_free(void * pmem)
     uintptr_t check_ptr = reinterpret_cast<uintptr_t>(pmem);
     uintptr_t memory_base = reinterpret_cast<uintptr_t>(m_p_memory);
     size_t index = (check_ptr - memory_base)/m_block_size;
-    assert((*m_bitfield)[index] == true);
+    MessagedAssert((*m_bitfield)[index] == true, "Trying to free from SmallBlockAllocator but bit is set to true");
     m_bitfield->releaseElement(index);
     m_blocks_allocated--;
 }
