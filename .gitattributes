@@ -26,6 +26,12 @@ CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.hpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.cpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.hpp -text
+CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.Win32.cpp -text
+CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.h -text
+CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.Win32.cpp -text
+CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.h -text
+CPP_GAME_ENG/ENGINE/src/utils/Target/Target.Win32.h -text
+CPP_GAME_ENG/ENGINE/src/utils/Target/Target.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.hpp -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj -text
