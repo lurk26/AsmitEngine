@@ -12,7 +12,13 @@ private:
     BlockAllocators();
 public:
     static BlockAllocators* get()       { return m_block_allocators; }
-    SmallBlockAllocator*    getSMBAllocator(size_t size) { return SMBAllocator[size]; }
+    SmallBlockAllocator*    getSMBAllocator(size_t size) 
+    {
+        if (SMBAllocator.find(size) != SMBAllocator.end())
+            return SMBAllocator[size];
+        else
+            return NULL;
+    }
     static void             create();
     static void             destroy();
     ~BlockAllocators();

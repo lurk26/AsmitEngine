@@ -3,6 +3,7 @@
 
 #include "Allocators.h"
 #include "BlockAllocators.hpp"
+#include "HeapAllocator.hpp"
 
 // standard new & delete
 void * operator new(size_t i_size)
@@ -19,27 +20,36 @@ void * operator new(size_t i_size)
 			return BlockAllocators::get()->getSMBAllocator(16)->_alloc();
 		}
 	}
-	return _aligned_malloc(i_size, 4);
+
+    return HeapAllocator::get()->_alloc(i_size);
+	//return _aligned_malloc(i_size, 4);
 }
 
 void operator delete(void * i_ptr)
 {
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
-	if (BlockAllocators::get())
-	{
-        if (BlockAllocators::get()->getSMBAllocator(8) && 
+    if (BlockAllocators::get())
+    {
+        if (BlockAllocators::get()->getSMBAllocator(8) &&
             BlockAllocators::get()->getSMBAllocator(8)->contains(i_ptr))
-		{
-			BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
-		}
-        else if (BlockAllocators::get()->getSMBAllocator(16) && 
-                BlockAllocators::get()->getSMBAllocator(16)->contains(i_ptr))
-		{
-			BlockAllocators::get()->getSMBAllocator(16)->_free(i_ptr);
-		}
-	}
+        {
+            BlockAllocators::get()->getSMBAllocator(8)->_free(i_ptr);
+        }
+        else if (BlockAllocators::get()->getSMBAllocator(16) &&
+            BlockAllocators::get()->getSMBAllocator(16)->contains(i_ptr))
+        {
+            BlockAllocators::get()->getSMBAllocator(16)->_free(i_ptr);
+        }
+
+        else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
+            //_aligned_free(i_ptr);
+            HeapAllocator::get()->_free(i_ptr);
+
+    }
     else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
-		_aligned_free(i_ptr);
+        //_aligned_free(i_ptr);
+        HeapAllocator::get()->_free(i_ptr);
+
 }
 
 // array new[] and delete[]
