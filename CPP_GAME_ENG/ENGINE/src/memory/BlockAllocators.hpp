@@ -7,15 +7,15 @@ class BlockAllocators
 private:
     static BlockAllocators * m_block_allocators;
 
-    std::map<size_t, SmallBlockAllocator*> SMBAllocator;
+    SmallBlockAllocator* SMBAllocator[10];
     
     BlockAllocators();
 public:
     static BlockAllocators* get()       { return m_block_allocators; }
     SmallBlockAllocator*    getSMBAllocator(size_t size) 
     {
-        if (SMBAllocator.find(size) != SMBAllocator.end())
-            return SMBAllocator[size];
+        if (SMBAllocator[static_cast<int>(log2(size))])
+            return SMBAllocator[static_cast<int>(log2(size))];
         else
             return NULL;
     }

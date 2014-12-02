@@ -84,6 +84,7 @@
     <ClCompile Include="..\src\memory\Allocators.cpp" />
     <ClCompile Include="..\src\memory\BitField.cpp" />
     <ClCompile Include="..\src\memory\BlockAllocators.cpp" />
+    <ClCompile Include="..\src\memory\HeapAllocator.cpp" />
     <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp" />
     <ClCompile Include="..\src\objects\Moveable.cpp" />
     <ClCompile Include="..\src\utils\Assert\Assert.Win32.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="..\src\memory\Allocators.h" />
     <ClInclude Include="..\src\memory\BitField.hpp" />
     <ClInclude Include="..\src\memory\BlockAllocators.hpp" />
+    <ClInclude Include="..\src\memory\HeapAllocator.hpp" />
     <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp" />
     <ClInclude Include="..\src\objects\Moveable.hpp" />
     <ClInclude Include="..\src\utils\Assert\Assert.h" />

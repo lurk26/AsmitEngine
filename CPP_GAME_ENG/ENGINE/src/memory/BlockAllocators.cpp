@@ -6,16 +6,15 @@ BlockAllocators * BlockAllocators::m_block_allocators = NULL;
 
 BlockAllocators::BlockAllocators()
 {
-    SMBAllocator[8] = SmallBlockAllocator::create(8, 1000);
-    SMBAllocator[16] = SmallBlockAllocator::create(16, 1000);
+    SMBAllocator[static_cast<int>(log2(8))] = SmallBlockAllocator::create(8, 1000);
+    SMBAllocator[static_cast<int>(log2(16))] = SmallBlockAllocator::create(16, 1000);
 }
 
 
 BlockAllocators::~BlockAllocators()
 {
-    delete SMBAllocator[8];
-    delete SMBAllocator[16];
-    SMBAllocator.clear();
+    delete SMBAllocator[static_cast<int>(log2(8))];
+    delete SMBAllocator[static_cast<int>(log2(16))];
 }
 
 void BlockAllocators::create()

@@ -60,6 +60,9 @@
     <ClCompile Include="..\src\utils\Console\ConsolePrint.Win32.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\memory\HeapAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp">
@@ -80,9 +83,6 @@
     <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp">
       <Filter>Header Files\memory</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\memory\BlockAllocators.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\utils\Assert\Assert.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
@@ -94,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="..\src\utils\Target\Target.Win32.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\HeapAllocator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\memory\BlockAllocators.hpp">
+      <Filter>Header Files\memory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
