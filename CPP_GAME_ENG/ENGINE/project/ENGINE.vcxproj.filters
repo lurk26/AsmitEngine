@@ -101,5 +101,8 @@
     <ClInclude Include="..\src\memory\BlockAllocators.hpp">
       <Filter>Header Files\memory</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\utils\RingBuffer.hpp">
+      <Filter>Source Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

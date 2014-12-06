@@ -101,6 +101,7 @@
     <ClInclude Include="..\src\objects\Moveable.hpp" />
     <ClInclude Include="..\src\utils\Assert\Assert.h" />
     <ClInclude Include="..\src\utils\Console\ConsolePrint.h" />
+    <ClInclude Include="..\src\utils\RingBuffer.hpp" />
     <ClInclude Include="..\src\utils\Target\Target.h" />
     <ClInclude Include="..\src\utils\Target\Target.Win32.h" />
     <ClInclude Include="..\src\utils\Vec3.hpp" />

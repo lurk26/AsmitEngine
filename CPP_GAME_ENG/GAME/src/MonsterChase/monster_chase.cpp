@@ -5,6 +5,8 @@
 #include "controller\random_move_ai.hpp"
 #include "controller\player_controller.hpp"
 
+#include "utils\RingBuffer.hpp"
+
 #include <algorithm>
 #include <ctime>
 #include <iostream>
@@ -54,7 +56,8 @@ void MonsterChase::beginChase()
 {
     bool play = true;
 
-    
+    RingBuffer<Vec3> past_states(8);
+
     while (play)
     {
         std::cout << "Enter Q to quit, i to add a monster, o to delete a random monster or any key to continue" << std::endl;
@@ -63,7 +66,7 @@ void MonsterChase::beginChase()
 
         switch (monster_chase_input)
         {
-        case 'q': return; break;
+        case 'q': play = false; break;
         case 'i':
         {
             Unit* monster = new Unit(1, 1);
@@ -93,12 +96,20 @@ void MonsterChase::beginChase()
         }
 
         m_player->update();
+
+        past_states.add(m_player->getXYZ());
+
         showCurrentLocations();
 
     }
         
-    
-
+    std::cout << "printing past 10 states: \n"
+    int num_states = past_states.size();
+    for (unsigned int i = 0; i < num_states; i++)
+    {
+        Vec3 v = past_states[i];
+        std::cout << v.getX() << " " << v.getY() << " " << v.getZ() << "\n";
+    }
     
 }
 MonsterChase::~MonsterChase()
