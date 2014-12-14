@@ -103,7 +103,7 @@ void MonsterChase::beginChase()
 
     }
         
-    std::cout << "printing past 10 states: \n"
+    std::cout << "printing past 10 states: \n";
     int num_states = past_states.size();
     for (unsigned int i = 0; i < num_states; i++)
     {

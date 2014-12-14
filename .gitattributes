@@ -32,6 +32,7 @@ CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.Win32.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.Win32.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.h -text
+CPP_GAME_ENG/ENGINE/src/utils/FloatHelpers.h -text
 CPP_GAME_ENG/ENGINE/src/utils/RingBuffer.hpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.Win32.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.h -text
