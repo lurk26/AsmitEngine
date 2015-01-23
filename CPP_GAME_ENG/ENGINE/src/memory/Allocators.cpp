@@ -5,9 +5,12 @@
 #include "BlockAllocators.hpp"
 #include "HeapAllocator.hpp"
 
+#undef USE_MY_MEMORY_MANAGER
+
 // standard new & delete
 void * operator new(size_t i_size)
 {
+#ifdef USE_MY_MEMORY_MANAGER
 	printf("Calling new( size_t ) with size %d.\n\n", i_size);
 	if (BlockAllocators::get())
 	{
@@ -22,11 +25,14 @@ void * operator new(size_t i_size)
 	}
 
     return HeapAllocator::get()->_alloc(i_size);
-	//return _aligned_malloc(i_size, 4);
+#else
+	return _aligned_malloc(i_size, 4);
+#endif
 }
 
 void operator delete(void * i_ptr)
 {
+
 	printf("Calling delete( void * ) on %p.\n\n", i_ptr);
     if (BlockAllocators::get())
     {
@@ -42,13 +48,21 @@ void operator delete(void * i_ptr)
         }
 
         else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
-            //_aligned_free(i_ptr);
+            
+#ifdef USE_MY_MEMORY_MANAGER
             HeapAllocator::get()->_free(i_ptr);
+#else
+            _aligned_free(i_ptr);
+#endif
 
     }
     else if (i_ptr) // don't delete NULL pointers. i guess we could also assert
-        //_aligned_free(i_ptr);
+        
+#ifdef USE_MY_MEMORY_MANAGER
         HeapAllocator::get()->_free(i_ptr);
+#else
+        _aligned_free(i_ptr);
+#endif
 
 }
 

@@ -38,6 +38,14 @@ CPP_GAME_ENG/ENGINE/src/utils/Target/Target.Win32.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.hpp -text
+CPP_GAME_ENG/Exports/Cheesy/Cheesy.h -text
+CPP_GAME_ENG/Exports/Cheesy/Cheesy_Debug.lib -text
+CPP_GAME_ENG/Exports/Cheesy/Cheesy_Release.lib -text
+CPP_GAME_ENG/Exports/Cheesy/IReferenceCounted.h -text
+CPP_GAME_ENG/Exports/Cheesy/Sprite.h -text
+CPP_GAME_ENG/Exports/Cheesy/Text.h -text
+CPP_GAME_ENG/Exports/Cheesy/Texture.h -text
+CPP_GAME_ENG/Exports/Cheesy/Types.h -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.filters -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.user -text
