@@ -26,7 +26,7 @@ public:
 
     void            setController(Controller* c)    { m_controller = c; }
 
-    void       update();
+    void            update( float dt );
     
 };
 

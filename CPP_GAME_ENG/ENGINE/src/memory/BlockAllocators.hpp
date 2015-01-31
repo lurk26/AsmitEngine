@@ -19,7 +19,7 @@ public:
         else
             return NULL;
     }
-    static void             create();
+    static bool             create();
     static void             destroy();
     ~BlockAllocators();
 

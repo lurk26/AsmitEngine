@@ -10,7 +10,7 @@ public:
     RandomMoveAI::RandomMoveAI(Unit* unit, const char* name);
     ~RandomMoveAI();
 
-    void    update();
+    void    update(float dt);
 };
 
 #endif

@@ -11,7 +11,7 @@ public:
     PlayerController(Unit* unit, const char* name);
     ~PlayerController();
 
-    void        update();
+    void        update(float dt);
 };
 
 #endif

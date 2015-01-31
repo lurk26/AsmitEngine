@@ -17,11 +17,14 @@ BlockAllocators::~BlockAllocators()
     delete SMBAllocator[static_cast<int>(log2(16))];
 }
 
-void BlockAllocators::create()
+bool BlockAllocators::create()
 {
     assert(m_block_allocators == NULL);
 
     m_block_allocators = new BlockAllocators();
+    
+    if (m_block_allocators == NULL) return false;
+    else return true;
 }
 
 void BlockAllocators::destroy()

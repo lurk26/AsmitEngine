@@ -14,7 +14,7 @@ public:
     Controller(Unit* unit, const char* name) : m_unit(unit), m_name(_strdup(name)) {};
     virtual ~Controller();
 
-    virtual void  update() = 0;
+    virtual void  update(float dt) = 0;
 };
 
 #endif

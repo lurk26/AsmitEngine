@@ -30,8 +30,8 @@ Unit::~Unit()
 
 
 
-void Unit::update()
+void Unit::update(float dt)
 {
-    m_controller->update();
-    m_body->update();
+    m_controller->update(dt);
+    m_body->update(dt);
 }

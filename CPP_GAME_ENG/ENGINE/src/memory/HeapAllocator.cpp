@@ -24,7 +24,7 @@ HeapAllocator::~HeapAllocator()
 }
 
 
-void HeapAllocator::create(size_t memSize)
+bool HeapAllocator::create(size_t memSize)
 {
     assert(m_heap_allocator == NULL);
 
@@ -33,11 +33,14 @@ void HeapAllocator::create(size_t memSize)
 
     m_heap_allocator = new HeapAllocator(pMem, memSize);
 
+    if (m_heap_allocator == NULL) return false;
+    else return true;
 }
 
 void HeapAllocator::destroy()
 {
-    delete m_heap_allocator;
+    if (m_heap_allocator)
+        delete m_heap_allocator;
 }
 
 void * HeapAllocator::_alloc(size_t bytes)

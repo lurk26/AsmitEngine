@@ -11,14 +11,22 @@
 */
 
 #include"memory\Allocators.h"
+#include "utils\FloatHelpers.h"
+#include "timing\Timing.h"
 
-
-class Engine
+namespace Engine
 {
-public:
-    Engine();
-    ~Engine();
-    static void shutdown();
+    bool        init();
+
+    bool        shutdown();
 };
+
+//class Engine
+//{
+//public:
+//    Engine();
+//    ~Engine();
+//    static void shutdown();
+//};
 
 #endif HEADER_ENGINE_HPP

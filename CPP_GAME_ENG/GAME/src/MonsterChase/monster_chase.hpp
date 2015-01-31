@@ -6,9 +6,6 @@
 #include "Unit.hpp"
 
 
-// This is a temporary static var used for user input. 
-static char monster_chase_input;
-
 class Unit;
 
 class MonsterChase

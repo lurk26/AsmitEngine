@@ -28,6 +28,9 @@ CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.hpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.cpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.hpp -text
+CPP_GAME_ENG/ENGINE/src/timing/Timing.Win32.cpp -text
+CPP_GAME_ENG/ENGINE/src/timing/Timing.h -text
+CPP_GAME_ENG/ENGINE/src/timing/Timing.inl -text
 CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.Win32.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Assert/Assert.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.Win32.cpp -text
@@ -49,6 +52,8 @@ CPP_GAME_ENG/Exports/Cheesy/Types.h -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.filters -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.user -text
+CPP_GAME_ENG/GAME/project/image/game_enemy.bmp -text
+CPP_GAME_ENG/GAME/project/image/game_guy.bmp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.cpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.hpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/Set.cpp -text

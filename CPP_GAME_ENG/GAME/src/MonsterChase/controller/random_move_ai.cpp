@@ -13,7 +13,7 @@ RandomMoveAI::~RandomMoveAI()
 {
 }
 
-void RandomMoveAI::update()
+void RandomMoveAI::update( float dt )
 {
-    m_unit->setVelocity(Vec3((float)(rand() % 3 - 1), (float)(rand() % 3 - 1), 0.0f));
+    m_unit->setVelocity(20.0f*Vec3((float)(rand() % 3 - 1), (float)(rand() % 3 - 1), 0.0f));
 }

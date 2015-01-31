@@ -22,7 +22,7 @@ private:
 
 public:
     static HeapAllocator*   get()           { return m_heap_allocator; }
-    static void             create(size_t sizeMem);
+    static bool             create(size_t sizeMem);
     static void             destroy();
     
     void *                  _alloc(size_t bytes);

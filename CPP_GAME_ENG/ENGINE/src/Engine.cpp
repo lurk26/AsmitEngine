@@ -6,22 +6,21 @@
 #include <iostream>
 
 
-Engine::Engine()
+bool Engine::init()
 {
     std::cout << "This is part of engine. Bye!\n\n";
-    HeapAllocator::create(1024 * 1024);
-    BlockAllocators::create();
+    if (!HeapAllocator::create(1024 * 1024)) return false;
+    if( !BlockAllocators::create() ) return false;
+
+    return true;
 }
 
 
-Engine::~Engine()
-{
-    
-}
-
-void Engine::shutdown()
+bool Engine::shutdown()
 {
     BlockAllocators::destroy();
 
     HeapAllocator::destroy();
+    
+    return true;
 }

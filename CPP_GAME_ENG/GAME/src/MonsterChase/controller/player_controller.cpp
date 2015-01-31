@@ -13,7 +13,7 @@ PlayerController::~PlayerController()
 {
 }
 
-void PlayerController::update()
+void PlayerController::update( float dt )
 {
     std::cout << "Enter W-A-S-D for up-left-down-right : ";
     char input;

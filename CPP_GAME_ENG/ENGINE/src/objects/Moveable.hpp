@@ -9,7 +9,7 @@ class Moveable
 private:
     Vec3        m_velocity;
     Vec3        m_position;
-
+    Vec3        m_old_velocity;
 public:
     Moveable();
     ~Moveable();
@@ -19,9 +19,9 @@ public:
     const Vec3&        getPosition() const             { return m_position; }
 
     void        setPosition(const Vec3& pos)    { m_position = pos; }
-    void        setVelocity(const Vec3& vel)    { m_velocity = vel; }
+    void        setVelocity(const Vec3& vel)    { m_old_velocity = m_velocity; m_velocity = vel; }
 
-    void        update();
+    void        update(float dt);
 };
 
 #endif
