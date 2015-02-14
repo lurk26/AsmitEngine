@@ -1,10 +1,10 @@
 #include "BasicRenderer.h"
 
-BasicRenderer* BasicRenderer::m_basic_renderer = NULL;
+BasicRenderer* BasicRenderer::m_basic_renderer = nullptr;
 
 BasicRenderer::BasicRenderer()
 {
-    
+    m_renderables.clear();
 }
 
 
@@ -16,7 +16,7 @@ bool BasicRenderer::init()
 {
     BasicRenderer* new_renderer = new BasicRenderer();
     assert(new_renderer);
-
+    m_basic_renderer = new_renderer;
     return true;
 }
 
@@ -30,7 +30,6 @@ bool BasicRenderer::addRenderable(Engine::SharedPtr<Moveable> moveable_ptr, std:
 {
     Renderable * new_renderable_object = new Renderable(moveable_ptr, texture_file_path);
     assert(new_renderable_object);
-    m_renderables.push_back(nullptr);
     m_renderables.push_back(new_renderable_object);
     return true;
     

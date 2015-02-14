@@ -11,6 +11,7 @@ class BasicRenderer
 private:
     static BasicRenderer* m_basic_renderer;
     std::vector<Renderable*> m_renderables;
+    
     BasicRenderer();
     ~BasicRenderer();
 
