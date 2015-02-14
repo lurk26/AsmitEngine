@@ -11,6 +11,8 @@
 */
 
 #include"memory\Allocators.h"
+#include "render\BasicRenderer.h"
+#include "utils\AutoPtr\AutoPtr.h"
 #include "utils\FloatHelpers.h"
 #include "timing\Timing.h"
 

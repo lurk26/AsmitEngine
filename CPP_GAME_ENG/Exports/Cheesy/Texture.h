@@ -16,7 +16,7 @@ class Texture : public IReferenceCounted
 public:
 	void Activate( unsigned int i_Stage );
 	static Texture * CreateFromData( void * i_pData, unsigned int i_DataSizeB );
-
+    static Texture * CreateTextureFromFile(const char * i_pTextureFilename);
 };
 
 } // namespace Cheesy

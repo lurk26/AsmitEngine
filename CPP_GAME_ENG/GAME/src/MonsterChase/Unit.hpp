@@ -4,13 +4,17 @@
 
 #include "objects/Moveable.hpp"
 
+#include "utils/SharedPtr/SharedPtr.h"
+
+#include <string>
+
 class Controller;
 
 class Unit
 {
 
 private:
-    Moveable* m_body;
+    Engine::SharedPtr<Moveable> m_body;
     Controller* m_controller;
 public:
 	Unit();
@@ -25,6 +29,8 @@ public:
     void            setVelocity(const Vec3& v)      { m_body->setVelocity(v); }
 
     void            setController(Controller* c)    { m_controller = c; }
+
+    void            setTexture(std::string s);
 
     void            update( float dt );
     

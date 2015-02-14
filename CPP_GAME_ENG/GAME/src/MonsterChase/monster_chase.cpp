@@ -7,11 +7,7 @@
 
 #include "timing\Timing.h"
 #include "utils\RingBuffer.hpp"
-
-#include "Cheesy.h"
-#include "Sprite.h"
-#include "Texture.h"
-#include "Text.h"
+#include "render\BasicRenderer.h"
 
 #include <algorithm>
 #include <ctime>
@@ -26,147 +22,115 @@ MonsterChase::MonsterChase()
     std::cout << "Enter the number of monsters: ";
    // std::cin >> m_num_monsters;
     m_num_monsters = 4;
-    m_player = new Unit(0.0f, 0.0f);
-    m_player->setController(new PlayerController(m_player, "Player"));
-    std::cout << "Initializing player at (0,0)\n";
-
+    
     initializeMonsters();
     showCurrentLocations();
 }
 
 void MonsterChase::initializeMonsters()
 {
+    m_player = new Unit(0.0f, 0.0f);
+    m_player->setController(new PlayerController(m_player, "Player"));
+    m_player->setTexture("image\\game_guy.bmp");
+    std::cout << "Initializing player at (0,0)\n";
+
     std::cout << "Initializing" << m_num_monsters << "monsters at (1,1):\n";
     for (unsigned int i = 0; i < m_num_monsters; i++)
     {
         Unit* monster = new Unit(1.0f, 1.0f);
         Controller* randomController = new RandomMoveAI(monster, "Monster");
         monster->setController(randomController);
+        monster->setTexture("image\\game_enemy.bmp");
         m_monsters.push_back(monster);
     }
 
 }
 
-Cheesy::Texture * CreateTextureFromFile(const char * i_pTextureFilename)
-{
-    assert(i_pTextureFilename != NULL);
-
-    FILE * pFile = NULL;
-
-    errno_t fopenError = fopen_s(&pFile, i_pTextureFilename, "rb");
-    if (fopenError != 0)
-        return NULL;
-
-    assert(pFile != NULL);
-
-    int FileIOError = fseek(pFile, 0, SEEK_END);
-    assert(FileIOError == 0);
-
-    long FileSize = ftell(pFile);
-    assert(FileSize >= 0);
-
-    FileIOError = fseek(pFile, 0, SEEK_SET);
-    assert(FileIOError == 0);
-
-    char * pBuffer = new char[FileSize];
-    assert(pBuffer);
-
-    long FileRead = fread(pBuffer, 1, FileSize, pFile);
-    assert(FileRead == FileSize);
-
-    fclose(pFile);
-
-    Cheesy::Texture * pTexture = Cheesy::Texture::CreateFromData(pBuffer, FileSize);
-
-    delete[] pBuffer;
-
-    return pTexture;
-}
 
 void MonsterChase::showCurrentLocations()
 {
-    bool bQuit = false;
+    //bool bQuit = false;
 
-    Cheesy::Service(bQuit);
+    //Cheesy::Service(bQuit);
 
-    struct Cheesy::Point2D SSTextUL(220, 40);
-    struct Cheesy::Point2D SSTextLR(420, 80);
-    struct Cheesy::ColorRGBA White(255, 255, 255, 255);
+    //struct Cheesy::Point2D SSTextUL(220, 40);
+    //struct Cheesy::Point2D SSTextLR(420, 80);
+    //struct Cheesy::ColorRGBA White(255, 255, 255, 255);
 
-    struct Cheesy::ColorRGBA ClearColor(50, 50, 255, 0);
+    //struct Cheesy::ColorRGBA ClearColor(50, 50, 255, 0);
 
-    if (bQuit == false)
-    {
-        struct Cheesy::Point2D		center(0.0f, 0.0f);
-        struct Cheesy::Point2D		size(50.0f, 50.0f);
-        struct Cheesy::Point2D		offsetGG(50.0f, 100.0f);
-        struct Cheesy::Point2D		offsetBG(0.0f, 0.0f);
+    //if (bQuit == false)
+    //{
+    //    struct Cheesy::Point2D		center(0.0f, 0.0f);
+    //    struct Cheesy::Point2D		size(50.0f, 50.0f);
+    //    struct Cheesy::Point2D		offsetGG(50.0f, 100.0f);
+    //    struct Cheesy::Point2D		offsetBG(0.0f, 0.0f);
 
-        struct Cheesy::ColorRGBA	white(255, 255, 255, 255);
-        Cheesy::UVSet				UVs = { Cheesy::UV(0.0f, 0.0f), Cheesy::UV(1.0f, 0.0f), Cheesy::UV(0.0f, 1.0f), Cheesy::UV(1.0f, 1.0f) };
+    //    struct Cheesy::ColorRGBA	white(255, 255, 255, 255);
+    //    Cheesy::UVSet				UVs = { Cheesy::UV(0.0f, 0.0f), Cheesy::UV(1.0f, 0.0f), Cheesy::UV(0.0f, 1.0f), Cheesy::UV(1.0f, 1.0f) };
 
-        Cheesy::Texture * pSampleTexture = CreateTextureFromFile("image\\game_guy.bmp");
-        assert(pSampleTexture);
+    //    Cheesy::Texture * pSampleTexture = CreateTextureFromFile("image\\game_guy.bmp");
+    //    assert(pSampleTexture);
 
-        Cheesy::Sprite * pGoodGuy = Cheesy::Sprite::Create(center, 0.1f, size, white, *pSampleTexture, UVs);
-        assert(pGoodGuy);
+    //    Cheesy::Sprite * pGoodGuy = Cheesy::Sprite::Create(center, 0.1f, size, white, *pSampleTexture, UVs);
+    //    assert(pGoodGuy);
 
-        pSampleTexture->Release();
+    //    pSampleTexture->Release();
 
-        pSampleTexture = CreateTextureFromFile("image\\game_enemy.bmp");
-        assert(pSampleTexture);
-        std::vector<Cheesy::Sprite *> monsters(m_num_monsters);
-        for (int i = 0; i < m_num_monsters; i++)
-        {
-            Cheesy::Sprite * pBadGuy = Cheesy::Sprite::Create(center, 0.1f, size, white, *pSampleTexture, UVs);
-            assert(pBadGuy);
-            monsters[i]=(pBadGuy);
-        }
+    //    pSampleTexture = CreateTextureFromFile("image\\game_enemy.bmp");
+    //    assert(pSampleTexture);
+    //    std::vector<Cheesy::Sprite *> monsters(m_num_monsters);
+    //    for (int i = 0; i < m_num_monsters; i++)
+    //    {
+    //        Cheesy::Sprite * pBadGuy = Cheesy::Sprite::Create(center, 0.1f, size, white, *pSampleTexture, UVs);
+    //        assert(pBadGuy);
+    //        monsters[i]=(pBadGuy);
+    //    }
 
-        pSampleTexture->Release();
+    //    pSampleTexture->Release();
 
-        ClearColor.r = ClearColor.g = ClearColor.b = 80;
+    //    ClearColor.r = ClearColor.g = ClearColor.b = 80;
 
-        float Rotation = 0.0f;
-        
-            // We must call Cheesy::Service() at the start of each frame
-            //Cheesy::Service(bQuit);
+    //    float Rotation = 0.0f;
+    //    
+    //        // We must call Cheesy::Service() at the start of each frame
+    //        //Cheesy::Service(bQuit);
 
-            if (!bQuit)
-            {
-                // We must call Cheesy::BeginFrame() when we want to start making draw requests
-                if (Cheesy::BeginFrame(ClearColor))
-                {
+    //        if (!bQuit)
+    //        {
+    //            // We must call Cheesy::BeginFrame() when we want to start making draw requests
+    //            if (Cheesy::BeginFrame(ClearColor))
+    //            {
 
-                    pGoodGuy->Draw(offsetGG, Rotation);
-                    for (int i = 0; i < m_num_monsters; i++)
-                    {
-                        struct Cheesy::Point2D pos(m_monsters[i]->getXYZ().getX(), m_monsters[i]->getXYZ().getY());
-                        monsters[i]->Draw( pos, 0.0f);
-                    }
-                    //pBadGuy->Draw(offsetBG, 0.0f);
+    //                pGoodGuy->Draw(offsetGG, Rotation);
+    //                for (int i = 0; i < m_num_monsters; i++)
+    //                {
+    //                    struct Cheesy::Point2D pos(m_monsters[i]->getXYZ().getX(), m_monsters[i]->getXYZ().getY());
+    //                    monsters[i]->Draw( pos, 0.0f);
+    //                }
+    //                //pBadGuy->Draw(offsetBG, 0.0f);
 
-                    // We must call Cheesy::EndFrame() when we're doing making draw requests.
-                    Cheesy::EndFrame();
-                }
-            }
-        
+    //                // We must call Cheesy::EndFrame() when we're doing making draw requests.
+    //                Cheesy::EndFrame();
+    //            }
+    //        }
+    //    
 
-        delete pGoodGuy;
-        for (int i = 0; i < m_num_monsters; i++)
-        {
-            delete monsters[i];
-        }
-        //delete pBadGuy;
-    }
-    /*std::cout << "Monsters are at: \n";
-    for (unsigned int i = 0; i < m_num_monsters; i++)
-    {
-        Vec3 pos = m_monsters[i]->getXYZ();
-        std::cout<< i <<": (" <<pos.getX() << "," << pos.getY()<< ")\n";
-    }
+    //    delete pGoodGuy;
+    //    for (int i = 0; i < m_num_monsters; i++)
+    //    {
+    //        delete monsters[i];
+    //    }
+    //    //delete pBadGuy;
+    //}
+    ///*std::cout << "Monsters are at: \n";
+    //for (unsigned int i = 0; i < m_num_monsters; i++)
+    //{
+    //    Vec3 pos = m_monsters[i]->getXYZ();
+    //    std::cout<< i <<": (" <<pos.getX() << "," << pos.getY()<< ")\n";
+    //}
 
-    std::cout << "Player at: (" << m_player->getXYZ().getX() << "," << m_player->getXYZ().getY() << ")\n";*/
+    //std::cout << "Player at: (" << m_player->getXYZ().getX() << "," << m_player->getXYZ().getY() << ")\n";*/
 }
 
 void MonsterChase::beginChase()
@@ -222,16 +186,12 @@ void MonsterChase::beginChase()
 
         //past_states.add(m_player->getXYZ());
 
-        showCurrentLocations();
+        //showCurrentLocations();
+
+        BasicRenderer::get()->update(dt);
 
     }
-        
-    /*std::cout << "printing past 10 states: \n";
-    int num_states = past_states.size();
-    for (unsigned int i = 0; i < num_states; i++)
-        Vec3 v = past_states[i];
-        std::cout << v.getX() << " " << v.getY() << " " << v.getZ() << "\n";
-    }*/
+
     
 }
 MonsterChase::~MonsterChase()
