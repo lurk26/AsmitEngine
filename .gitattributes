@@ -43,9 +43,16 @@ CPP_GAME_ENG/ENGINE/src/utils/AutoPtr/sample.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.Win32.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Console/ConsolePrint.h -text
 CPP_GAME_ENG/ENGINE/src/utils/FloatHelpers.h -text
+CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString-inl.h -text
+CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString.cpp -text
+CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString.h -text
+CPP_GAME_ENG/ENGINE/src/utils/NamedBitSet/NamedBitSet-inl.h -text
+CPP_GAME_ENG/ENGINE/src/utils/NamedBitSet/NamedBitSet.h -text
 CPP_GAME_ENG/ENGINE/src/utils/RingBuffer.hpp -text
 CPP_GAME_ENG/ENGINE/src/utils/SharedPtr/SharedPtr-inl.h -text
 CPP_GAME_ENG/ENGINE/src/utils/SharedPtr/SharedPtr.h -text
+CPP_GAME_ENG/ENGINE/src/utils/StringPool/StringPool.cpp -text
+CPP_GAME_ENG/ENGINE/src/utils/StringPool/StringPool.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.Win32.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.cpp -text

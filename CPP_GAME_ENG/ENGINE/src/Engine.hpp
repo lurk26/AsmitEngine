@@ -10,10 +10,12 @@
 #endif 
 */
 
-#include"memory\Allocators.h"
+#include "memory\Allocators.h"
 #include "render\BasicRenderer.h"
 #include "utils\AutoPtr\AutoPtr.h"
 #include "utils\FloatHelpers.h"
+#include "utils\NamedBitSet\NamedBitSet.h"
+#include "utils\StringPool\StringPool.h"
 #include "timing\Timing.h"
 
 namespace Engine
