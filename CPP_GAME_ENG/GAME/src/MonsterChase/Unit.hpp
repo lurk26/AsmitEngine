@@ -21,6 +21,7 @@ public:
 	virtual ~Unit();
 
     Unit(float x, float y);
+    Unit(Vec3 pos);
     
     const Vec3&     getXYZ()                        { return m_body->getPosition(); }
     const Vec3&     getVelocity()                   { return m_body->getVelocity(); }

@@ -82,13 +82,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ENGINE\src;$(SolutionDir)Exports\Cheesy</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Exports\luaplus;$(SolutionDir)\ENGINE\src;$(SolutionDir)Exports\Cheesy</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Exports\Cheesy;$(SolutionDir)\build\bin\$(Configuration)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Cheesy_Debug.lib;d3dx9d.lib;dxerr.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Exports\luaplus;$(SolutionDir)\Exports\Cheesy;$(SolutionDir)\build\bin\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luaplusstatic51_1201.Debug.lib;Cheesy_Debug.lib;d3dx9d.lib;dxerr.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -101,15 +101,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ENGINE\src;$(SolutionDir)Exports\Cheesy</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Exports\luaplus;$(SolutionDir)\ENGINE\src;$(SolutionDir)Exports\Cheesy</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Exports\Cheesy;$(SolutionDir)\build\bin\$(Configuration)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Cheesy_Release.lib;d3dx9.lib;dxerr.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Exports\luaplus;$(SolutionDir)\Exports\Cheesy;$(SolutionDir)\build\bin\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>luaplusstatic51_1201.Release.lib;Cheesy_Release.lib;d3dx9.lib;dxerr.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

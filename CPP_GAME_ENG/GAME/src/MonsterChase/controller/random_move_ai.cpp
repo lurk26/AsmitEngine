@@ -1,4 +1,5 @@
 #include "random_move_ai.hpp"
+#include "../monster_chase.hpp"
 
 #include "..\Unit.hpp"
 
@@ -15,5 +16,6 @@ RandomMoveAI::~RandomMoveAI()
 
 void RandomMoveAI::update( float dt )
 {
-    m_unit->setVelocity(20.0f*Vec3((float)(rand() % 3 - 1), (float)(rand() % 3 - 1), 0.0f));
+    Unit* target = MonsterChase::get()->getClosestUnitFrom(m_unit->getXYZ(), m_unit);
+    m_unit->setVelocity(-1.0f*(target->getXYZ() - m_unit->getXYZ()));
 }

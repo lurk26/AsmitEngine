@@ -24,6 +24,13 @@ Unit::Unit(float x, float y)
     m_body->setActive(true);
 }
 
+Unit::Unit(Vec3 pos)
+{
+    m_body = Engine::SharedPtr<Moveable>(new Moveable());
+    m_body->setPosition(pos);
+    m_body->setVelocity(Vec3(0.0f, 0.0f, 0.0f));
+    m_body->setActive(true);
+}
 
 Unit::~Unit()
 {

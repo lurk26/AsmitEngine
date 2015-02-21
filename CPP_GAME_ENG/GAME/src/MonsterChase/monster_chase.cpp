@@ -9,10 +9,12 @@
 #include "utils\RingBuffer.hpp"
 #include "render\BasicRenderer.h"
 
+
 #include <algorithm>
 #include <ctime>
 #include <iostream>
 
+MonsterChase* MonsterChase::m_monster_chase = NULL;
 
 MonsterChase::MonsterChase()
 {
@@ -22,30 +24,94 @@ MonsterChase::MonsterChase()
     std::cout << "Enter the number of monsters: ";
    // std::cin >> m_num_monsters;
     m_num_monsters = 4;
-    
+    m_monster_chase = this;
     initializeMonsters();
     showCurrentLocations();
 }
 
 void MonsterChase::initializeMonsters()
 {
-    m_player = new Unit(0.0f, 0.0f);
-    m_player->setController(new PlayerController(m_player, "Player"));
-    m_player->setTexture("image\\game_guy.bmp");
-    std::cout << "Initializing player at (0,0)\n";
-
-    std::cout << "Initializing" << m_num_monsters << "monsters at (1,1):\n";
-    for (unsigned int i = 0; i < m_num_monsters; i++)
-    {
-        Unit* monster = new Unit(1.0f, 1.0f);
-        Controller* randomController = new RandomMoveAI(monster, "Monster");
-        monster->setController(randomController);
-        monster->setTexture("image\\game_enemy.bmp");
-        m_monsters.push_back(monster);
-    }
-
+    
+    parseLuaLoadActors("Actors.lua");
 }
 
+bool GetAsVector3(LuaPlus::LuaObject & i_Object, Vec3 & o_Out)
+{
+    if (!i_Object.IsTable() || (i_Object.GetCount() < 3))
+        return false;
+
+    LuaPlus::LuaObject X = i_Object[1];
+    LuaPlus::LuaObject Y = i_Object[2];
+    LuaPlus::LuaObject Z = i_Object[3];
+
+    if (!X.IsNumber() || !Y.IsNumber() || !Z.IsNumber())
+        return false;
+
+    o_Out.setX(X.GetFloat());
+    o_Out.setY(Y.GetFloat());
+    o_Out.setZ(Z.GetFloat());
+
+    return true;
+}
+
+Unit* MonsterChase::makeUnit(LuaPlus::LuaObject lua_actor)
+{
+    assert(lua_actor.IsTable());
+   
+    LuaPlus::LuaObject ControllerName = lua_actor["controller"];
+    assert(ControllerName.IsString());
+
+    Vec3 pos(0, 0, 0);
+    LuaPlus::LuaObject InitialPosition = lua_actor["position"];
+    if (!InitialPosition.IsNil())
+    {
+        GetAsVector3(InitialPosition, pos);
+    }
+
+    LuaPlus::LuaObject SpriteTexture = lua_actor["texture"];
+    assert(SpriteTexture.IsString());
+
+    Unit* unit = new Unit(pos);
+    Controller* controller;
+    if (strcmp(ControllerName.GetString(), "RandomMoveAI") == 0)
+    {
+        controller = new RandomMoveAI(unit, "Monster");
+    }
+    else if (strcmp(ControllerName.GetString(), "PlayerController") == 0)
+    {
+       controller = new PlayerController(unit, "Player");
+    }
+    else
+    {
+        controller = new RandomMoveAI(unit, "Monster");
+    }
+    unit->setController(controller);
+    unit->setTexture(SpriteTexture.GetString());
+
+    return unit;
+}
+
+void MonsterChase::parseLuaLoadActors(std::string s)
+{
+    using namespace LuaPlus;
+    LuaState * pState = LuaState::Create();
+    if (pState)
+    {
+        if (pState->DoFile(s.c_str()) == 0)
+        {
+            // Read the Actors
+            LuaObject Actors = pState->GetGlobal("Actors");
+            for (LuaPlus::LuaTableIterator it(Actors); it; it.Next())
+            {
+                LuaObject ThisActor = it.GetValue();
+                assert(ThisActor.IsTable());
+                m_monsters.push_back(makeUnit(ThisActor));
+            }
+
+            m_num_monsters = m_monsters.size();
+        }
+    }
+}
 
 void MonsterChase::showCurrentLocations()
 {
@@ -182,7 +248,8 @@ void MonsterChase::beginChase()
             m_monsters[i]->update(dt);
         }
 
-        m_player->update(dt);
+        if (m_player)
+            m_player->update(dt);
 
         //past_states.add(m_player->getXYZ());
 
@@ -194,10 +261,35 @@ void MonsterChase::beginChase()
 
     
 }
+
+
+Unit* MonsterChase::getClosestUnitFrom(Vec3 point, Unit* ignore)
+{
+    float min_dist = 999999.999f;
+    Unit* closest_unit = nullptr;
+    for (unsigned int i = 0; i < m_monsters.size(); i++)
+    {
+        if (ignore && ignore == m_monsters[i]) continue;
+        float dist = (point - m_monsters[i]->getXYZ()).length2();
+        if (dist < min_dist)
+        {
+            min_dist = dist;
+            closest_unit = m_monsters[i];
+        }
+
+    }
+    return closest_unit;
+}
+
 MonsterChase::~MonsterChase()
 {
     for (unsigned int i = 0; i < m_monsters.size(); i++)
         delete m_monsters[i];
 
-    delete m_player;
+    if(m_player) delete m_player;
+
+    m_monster_chase = NULL;
 }
+
+
+
