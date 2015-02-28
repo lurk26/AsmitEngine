@@ -116,6 +116,7 @@
     <ClInclude Include="..\src\utils\FloatHelpers.h" />
     <ClInclude Include="..\src\utils\HashedString\HashedString-inl.h" />
     <ClInclude Include="..\src\utils\HashedString\HashedString.h" />
+    <ClInclude Include="..\src\utils\Matrix4.h" />
     <ClInclude Include="..\src\utils\NamedBitSet\NamedBitSet-inl.h" />
     <ClInclude Include="..\src\utils\NamedBitSet\NamedBitSet.h" />
     <ClInclude Include="..\src\utils\RingBuffer.hpp" />

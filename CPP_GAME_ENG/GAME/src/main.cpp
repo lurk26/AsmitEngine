@@ -50,12 +50,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		delete pTestPool;
 		// -------------------------------------------
 
-
+        // Unit test for auto ptr --------------------
         int * myptr = new int[10];
         // using auto pointer. this should prevent memory leak on myptr;
         Engine::AutoPtr <int> test_autoptr(myptr);
-
-
+        // -------------------------------------------
+                
 		MonsterChase * game = new MonsterChase();
 		game->beginChase();
 		delete game;

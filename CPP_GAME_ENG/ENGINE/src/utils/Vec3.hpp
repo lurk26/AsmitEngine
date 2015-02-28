@@ -42,6 +42,7 @@ public:
     inline Vec3&           operator*=(const float& s)
     {
         m_floats[0] *= s; m_floats[1] *= s; m_floats[2] *= s;
+        return *this;
     }
 
     inline Vec3&           operator/=(const float& s)

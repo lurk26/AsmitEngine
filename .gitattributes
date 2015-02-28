@@ -46,6 +46,7 @@ CPP_GAME_ENG/ENGINE/src/utils/FloatHelpers.h -text
 CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString-inl.h -text
 CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/HashedString/HashedString.h -text
+CPP_GAME_ENG/ENGINE/src/utils/Matrix4.h -text
 CPP_GAME_ENG/ENGINE/src/utils/NamedBitSet/NamedBitSet-inl.h -text
 CPP_GAME_ENG/ENGINE/src/utils/NamedBitSet/NamedBitSet.h -text
 CPP_GAME_ENG/ENGINE/src/utils/RingBuffer.hpp -text
