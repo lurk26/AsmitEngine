@@ -4,6 +4,9 @@
 #include "float.h"
 #include "math.h"
 
+namespace Engine
+{
+
 inline bool isNan(float i_f)
 {
     volatile float temp = i_f;
@@ -24,4 +27,5 @@ inline bool isInfinity(float i_f)
     else return false;
 }
 
+}
 #endif

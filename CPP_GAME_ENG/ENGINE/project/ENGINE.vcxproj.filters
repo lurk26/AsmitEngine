@@ -96,6 +96,9 @@
     <ClCompile Include="..\src\utils\StringPool\StringPool.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\utils\unit_tests.hpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp">

@@ -4,6 +4,7 @@
 #include "Windows.h"
 
 #include "../../ENGINE/src/Engine.hpp"
+#include "../../ENGINE/src/utils/unit_tests.hpp"
 
 #include "MonsterChase\monster_chase.hpp"
 
@@ -22,6 +23,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     {
         Cheesy::Create("Cheesy Test App", 640, 480, false, false);
         BasicRenderer::init();
+
+        Engine::UnitTest_Matrix();
+
 
 		// Unit test for NamedBitSet --------------
 		// This incorporates a test or HashedString too

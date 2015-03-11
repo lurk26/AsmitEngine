@@ -58,6 +58,7 @@ CPP_GAME_ENG/ENGINE/src/utils/Target/Target.Win32.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Target/Target.h -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.cpp -text
 CPP_GAME_ENG/ENGINE/src/utils/Vec3.hpp -text
+CPP_GAME_ENG/ENGINE/src/utils/unit_tests.hpp -text
 CPP_GAME_ENG/Exports/Cheesy/Cheesy.h -text
 CPP_GAME_ENG/Exports/Cheesy/Cheesy_Debug.lib -text
 CPP_GAME_ENG/Exports/Cheesy/Cheesy_Release.lib -text

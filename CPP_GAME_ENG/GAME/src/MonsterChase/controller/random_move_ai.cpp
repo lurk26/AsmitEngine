@@ -17,5 +17,5 @@ RandomMoveAI::~RandomMoveAI()
 void RandomMoveAI::update( float dt )
 {
     Unit* target = MonsterChase::get()->getClosestUnitFrom(m_unit->getXYZ(), m_unit);
-    m_unit->setVelocity(-1.0f*(target->getXYZ() - m_unit->getXYZ()));
+    m_unit->setVelocity(1.0f*(target->getXYZ() - m_unit->getXYZ()));
 }

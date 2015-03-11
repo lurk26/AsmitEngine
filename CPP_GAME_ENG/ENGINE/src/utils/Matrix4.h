@@ -5,6 +5,8 @@
 #include <cstring>
 #include "FloatHelpers.h"
 
+#include <iostream>
+
 namespace Engine
 {
 
@@ -15,17 +17,22 @@ private:
 
 public:
 
-    Matrix4();
+    Matrix4() {};
     Matrix4(const Matrix4& other);
-
-    float&          operator()(const int row, const int col) { return M[row * 4 + col]; }
-    float&          operator[](const int index) { return M[index]; }
+    float&          operator()(const int row, const int col) 
+                                            { return M[row * 4 + col]; }
+    const float&    operator()(const int row, const int col) const 
+                                            { return M[row * 4 + col]; }
+    
+    float&    operator[](const int index) { return M[index]; }
+    const float&    operator[](const int index) const { return M[index]; }
 
     inline Matrix4& operator=(const Matrix4& other);
     inline Matrix4  operator=(const float& scalar);
 
-    bool            operator==(const Matrix4& other) const;
-    bool            operator!=(const Matrix4& other) const;
+    inline bool     operator==(const Matrix4& other) const;
+    static inline bool isEqual(const Matrix4& a, const Matrix4& b);
+    inline bool     operator!=(const Matrix4& other) const;
 
     inline Matrix4  operator+(const Matrix4& other) const;
     inline Matrix4& operator+=(const Matrix4& other);
@@ -41,6 +48,8 @@ public:
     inline void     makeIdentity();
     inline bool     isIdentity() const {};
     
+    inline void     setFromArray(float *d);
+
     inline Matrix4& setTranslation(const Vec3& translation);
 
     inline Vec3      getTranslation() const;
@@ -55,8 +64,14 @@ public:
     inline void     getTransposed(Matrix4& dest) const;
 };
 
+inline Matrix4::Matrix4(const Matrix4& other)
+{ 
+    std::cout << "Consturctor called\n";
+    *this = other;
+}
 inline Matrix4& Matrix4::operator=(const Matrix4& other)
 {
+    
     if (this == &other)
         return *this;
     memcpy(M, other.M, 16 * sizeof(float));
@@ -70,7 +85,7 @@ inline Matrix4  Matrix4::operator=(const float& scalar)
     return *this;
 }
 
-inline bool MAtrix4::operator==(const Matrix4& other) const
+inline bool Matrix4::operator==(const Matrix4& other) const
 {
     for (int i = 0; i < 16; ++i)
         if (M[i] != other.M[i])
@@ -79,44 +94,86 @@ inline bool MAtrix4::operator==(const Matrix4& other) const
     return true;
 }
 
+inline bool Matrix4::isEqual(const Matrix4& a, const Matrix4& b)
+{
+    for (int i = 0; i < 16; ++i)
+        if (!Engine::isEqual(a.M[i], b.M[i]))
+            return false;
+
+    return true;
+}
+
+inline Matrix4 Matrix4::operator*(const Matrix4& m1) const
+{
+    Matrix4 m3;
+    const float *m2 = M;
+    
+    m3[0] = m1[0] * m2[0] + m1[4] * m2[1] + m1[8] * m2[2] + m1[12] * m2[3];
+    m3[1] = m1[1] * m2[0] + m1[5] * m2[1] + m1[9] * m2[2] + m1[13] * m2[3];
+    m3[2] = m1[2] * m2[0] + m1[6] * m2[1] + m1[10] * m2[2] + m1[14] * m2[3];
+    m3[3] = m1[3] * m2[0] + m1[7] * m2[1] + m1[11] * m2[2] + m1[15] * m2[3];
+
+    m3[4] = m1[0] * m2[4] + m1[4] * m2[5] + m1[8] * m2[6] + m1[12] * m2[7];
+    m3[5] = m1[1] * m2[4] + m1[5] * m2[5] + m1[9] * m2[6] + m1[13] * m2[7];
+    m3[6] = m1[2] * m2[4] + m1[6] * m2[5] + m1[10] * m2[6] + m1[14] * m2[7];
+    m3[7] = m1[3] * m2[4] + m1[7] * m2[5] + m1[11] * m2[6] + m1[15] * m2[7];
+
+    m3[8] = m1[0] * m2[8] + m1[4] * m2[9] + m1[8] * m2[10] + m1[12] * m2[11];
+    m3[9] = m1[1] * m2[8] + m1[5] * m2[9] + m1[9] * m2[10] + m1[13] * m2[11];
+    m3[10] = m1[2] * m2[8] + m1[6] * m2[9] + m1[10] * m2[10] + m1[14] * m2[11];
+    m3[11] = m1[3] * m2[8] + m1[7] * m2[9] + m1[11] * m2[10] + m1[15] * m2[11];
+
+    m3[12] = m1[0] * m2[12] + m1[4] * m2[13] + m1[8] * m2[14] + m1[12] * m2[15];
+    m3[13] = m1[1] * m2[12] + m1[5] * m2[13] + m1[9] * m2[14] + m1[13] * m2[15];
+    m3[14] = m1[2] * m2[12] + m1[6] * m2[13] + m1[10] * m2[14] + m1[14] * m2[15];
+    m3[15] = m1[3] * m2[12] + m1[7] * m2[13] + m1[11] * m2[14] + m1[15] * m2[15];
+    return m3;
+}
+
 inline void Matrix4::makeIdentity()
 {
     memset(M, 0, 16 * sizeof(float));
-    M[0] = M[5] = M[10] = M[15] = (float);
-    return *this;
+    M[0] = M[5] = M[10] = M[15] = (float)1;
+}
+
+inline void Matrix4::setFromArray(float *d)
+{
+    for (int i = 0; i < 16; ++i)
+        M[i] = *(d + i);
 }
 
 inline Matrix4& Matrix4::setTranslation(const Vec3& translation)
 {
-    M[12] = translation.X;
-    M[13] = translation.Y;
-    M[14] = translation.Z;
+    M[12] = translation.X();
+    M[13] = translation.Y();
+    M[14] = translation.Z();
     return *this;
 }
 
+// Make a rotation matrix from Euler angles.
 inline Matrix4&  Matrix4::setRotationRadians(const Vec3& rotation)
 {
-    const float cr = cos(rotation.X);
-    const float sr = sin(rotation.X);
-    const float cp = cos(rotation.Y);
-    const float sp = sin(rotation.Y);
-    const float cy = cos(rotation.Z);
-    const float sy = sin(rotation.Z);
+    const float cr = cos(rotation.X());
+    const float sr = sin(rotation.X());
+    const float cp = cos(rotation.Y());
+    const float sp = sin(rotation.Y());
+    const float cy = cos(rotation.Z());
+    const float sy = sin(rotation.Z());
 
-    M[0] = (T)(cp*cy);
-    M[1] = (T)(cp*sy);
-    M[2] = (T)(-sp);
+    M[0] = (float)(cp*cy);
+    M[1] = (float)(cp*sy);
+    M[2] = (float)(-sp);
 
     const float srsp = sr*sp;
     const float crsp = cr*sp;
 
-    M[4] = (T)(srsp*cy - cr*sy);
-    M[5] = (T)(srsp*sy + cr*cy);
-    M[6] = (T)(sr*cp);
+    M[4] = (float)(srsp*cy - cr*sy);
+    M[5] = (float)(srsp*sy + cr*cy);
+    M[6] = (float)(sr*cp);
 
-    M[8] = (T)(crsp*cy + sr*sy);
-    M[9] = (T)(crsp*sy - sr*cy);
-    M[10] = (T)(cr*cp);
+    M[8] = (float)(crsp*cy + sr*sy);
+    M[9] = (float)(crsp*sy - sr*cy);
+    M[10] = (float)(cr*cp);
 
     return *this;
 }
@@ -125,34 +182,34 @@ inline Matrix4&  Matrix4::setRotationAxisRadians(const float& angle, const Vec3&
 {
     const float c = cos(angle);
     const float s = sin(angle);
-    const float t = 1.0 - c;
+    const float t = 1.0f - c;
 
-    const float tx = t * axis.X;
-    const float ty = t * axis.Y;
-    const float tz = t * axis.Z;
+    const float tx = t * axis.X();
+    const float ty = t * axis.Y();
+    const float tz = t * axis.Z();
 
-    const float sx = s * axis.X;
-    const float sy = s * axis.Y;
-    const float sz = s * axis.Z;
+    const float sx = s * axis.X();
+    const float sy = s * axis.Y();
+    const float sz = s * axis.Z();
 
-    M[0] = (float)(tx * axis.X + c);
-    M[1] = (float)(tx * axis.Y + sz);
-    M[2] = (float)(tx * axis.Z - sy);
+    M[0] = (float)(tx * axis.X() + c);
+    M[1] = (float)(tx * axis.Y() + sz);
+    M[2] = (float)(tx * axis.Z() - sy);
 
-    M[4] = (float)(ty * axis.X - sz);
-    M[5] = (float)(ty * axis.Y + c);
-    M[6] = (float)(ty * axis.Z + sx);
+    M[4] = (float)(ty * axis.X() - sz);
+    M[5] = (float)(ty * axis.Y() + c);
+    M[6] = (float)(ty * axis.Z() + sx);
 
-    M[8] = (float)(tz * axis.X + sy);
-    M[9] = (float)(tz * axis.Y - sx);
-    M[10] = (T)(tz * axis.Z + c);
+    M[8] = (float)(tz * axis.X() + sy);
+    M[9] = (float)(tz * axis.Y() - sx);
+    M[10] = (float)(tz * axis.Z() + c);
 
     return *this;
 }
 
-inline bool Matrix4::getInverse(Matrix4& out)
+inline bool Matrix4::getInverse(Matrix4& out) const
 {
-    const CMatrix4<T> &m = *this;
+    const Matrix4 &m = *this;
 
     float d = (m(0, 0) * m(1, 1) - m(0, 1) * m(1, 0)) * (m(2, 2) * m(3, 3) - m(2, 3) * m(3, 2)) -
         (m(0, 0) * m(1, 2) - m(0, 2) * m(1, 0)) * (m(2, 1) * m(3, 3) - m(2, 3) * m(3, 1)) +
@@ -161,7 +218,7 @@ inline bool Matrix4::getInverse(Matrix4& out)
         (m(0, 1) * m(1, 3) - m(0, 3) * m(1, 1)) * (m(2, 0) * m(3, 2) - m(2, 2) * m(3, 0)) +
         (m(0, 2) * m(1, 3) - m(0, 3) * m(1, 2)) * (m(2, 0) * m(3, 1) - m(2, 1) * m(3, 0));
 
-    if (isEqual(d, 0.0f))
+    if (Engine::isEqual(d, 0.0f))
         return false;
 
     d = 1.f/(d);
@@ -219,7 +276,7 @@ inline bool Matrix4::getInverse(Matrix4& out)
 }
 
 
-inline void Matrix4::getTransposed(Matrix4& dest)
+inline void Matrix4::getTransposed(Matrix4& dest) const
 {
     dest[0] = M[0];
     dest[1] = M[4];

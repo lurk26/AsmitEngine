@@ -96,6 +96,7 @@
     <ClCompile Include="..\src\utils\Console\ConsolePrint.Win32.cpp" />
     <ClCompile Include="..\src\utils\HashedString\HashedString.cpp" />
     <ClCompile Include="..\src\utils\StringPool\StringPool.cpp" />
+    <ClCompile Include="..\src\utils\unit_tests.hpp" />
     <ClCompile Include="..\src\utils\Vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
