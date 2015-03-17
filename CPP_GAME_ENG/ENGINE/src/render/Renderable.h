@@ -11,12 +11,14 @@
 
 #include <string>
 
-class Moveable;
+namespace Engine{
+
+class Engine::Moveable;
 
 class Renderable
 {
 public:
-    Renderable(Engine::SharedPtr<Moveable> object_ptr, const std::string & texturefilepath);
+    Renderable(Engine::SharedPtr<Engine::Moveable> object_ptr, const std::string & texturefilepath);
 
     ~Renderable();
 
@@ -24,12 +26,13 @@ public:
 
     bool isValid()      { return m_pMoveable->isActive(); }
 
-private: 
+private:
 
-    Engine::SharedPtr<Moveable> m_pMoveable;
+    Engine::SharedPtr<Engine::Moveable> m_pMoveable;
     Cheesy::Sprite * m_pSprite;
 
 
 
 };
 
+}

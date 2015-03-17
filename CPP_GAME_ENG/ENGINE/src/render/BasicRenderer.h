@@ -5,6 +5,8 @@
 
 #include <vector>
 
+namespace Engine{
+
 class Moveable;
 class BasicRenderer
 {
@@ -25,3 +27,4 @@ public:
     void    update(float dt);
 };
 
+}

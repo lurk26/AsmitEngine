@@ -1,5 +1,8 @@
 #include "BasicRenderer.h"
 
+namespace Engine
+{
+
 BasicRenderer* BasicRenderer::m_basic_renderer = nullptr;
 
 BasicRenderer::BasicRenderer()
@@ -54,4 +57,5 @@ void BasicRenderer::update(float dt)
 
         Cheesy::EndFrame();
     }
+}
 }

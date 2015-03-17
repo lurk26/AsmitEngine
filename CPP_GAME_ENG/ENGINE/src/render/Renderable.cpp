@@ -6,6 +6,7 @@
 
 #include "string"
 
+namespace Engine{
 
 Renderable::Renderable(Engine::SharedPtr<Moveable> object_ptr, 
                         const std::string& texturefilepath) :
@@ -46,4 +47,5 @@ void Renderable::draw()
     struct Cheesy::Point2D pos(pos_vec3.getX(), pos_vec3.getY());
 
     m_pSprite->Draw(pos, 0.0f /* rotation */);
+}
 }

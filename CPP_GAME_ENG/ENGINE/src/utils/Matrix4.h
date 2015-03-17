@@ -150,6 +150,11 @@ inline Matrix4& Matrix4::setTranslation(const Vec3& translation)
     return *this;
 }
 
+inline Vec3 Matrix4::getTranslation() const
+{
+    return Vec3(M[12], M[13], M[14]);
+}
+
 // Make a rotation matrix from Euler angles.
 inline Matrix4&  Matrix4::setRotationRadians(const Vec3& rotation)
 {

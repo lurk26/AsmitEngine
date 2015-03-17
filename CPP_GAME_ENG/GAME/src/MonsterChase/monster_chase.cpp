@@ -255,7 +255,7 @@ void MonsterChase::beginChase()
 
         //showCurrentLocations();
 
-        BasicRenderer::get()->update(dt);
+        Engine::BasicRenderer::get()->update(dt);
 
     }
 

@@ -10,6 +10,7 @@
 
 Unit::Unit()
 {
+    using namespace Engine;
     m_body = Engine::SharedPtr<Moveable>(new Moveable());
     m_body->setPosition(Vec3(0, 0, 0));
     m_body->setVelocity(Vec3(0, 0, 0));
@@ -18,6 +19,7 @@ Unit::Unit()
 
 Unit::Unit(float x, float y)
 {
+    using namespace Engine;
     m_body = Engine::SharedPtr<Moveable>(new Moveable());
     m_body->setPosition(Vec3(x, y, 0.0f));
     m_body->setVelocity(Vec3(0.0f, 0.0f, 0.0f));
@@ -26,6 +28,7 @@ Unit::Unit(float x, float y)
 
 Unit::Unit(Vec3 pos)
 {
+    using namespace Engine;
     m_body = Engine::SharedPtr<Moveable>(new Moveable());
     m_body->setPosition(pos);
     m_body->setVelocity(Vec3(0.0f, 0.0f, 0.0f));
@@ -48,5 +51,6 @@ void Unit::update(float dt)
 
 void Unit::setTexture(std::string s)
 {
+    using namespace Engine;
     BasicRenderer::get()->addRenderable(m_body, s);
 }

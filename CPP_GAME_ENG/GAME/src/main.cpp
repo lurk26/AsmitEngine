@@ -22,7 +22,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     if (Engine::init())
     {
         Cheesy::Create("Cheesy Test App", 640, 480, false, false);
-        BasicRenderer::init();
+        Engine::BasicRenderer::init();
 
         Engine::UnitTest_Matrix();
 
@@ -65,7 +65,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		delete game;
 
 
-        BasicRenderer::shutdown();
+        Engine::BasicRenderer::shutdown();
         Cheesy::Shutdown();
         Engine::shutdown();
     }
