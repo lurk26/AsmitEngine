@@ -62,6 +62,18 @@ public:
 
     inline bool     getInverse(Matrix4& out) const;
     inline void     getTransposed(Matrix4& dest) const;
+
+    // Rotate a vector by the rotation part of this matrix.
+    inline void     rotateVect(Vec3& vect) const;
+
+    // An alternate transform vector method, writing into a second vector
+    inline void     rotateVect(Vec3& out, const Vec3& in) const;
+
+    // Transforms the vector by this matrix
+    inline void     transformVect(Vec3& vect) const;
+
+    // Transforms input vector by this matrix and stores result in output vector
+    inline void     transformVect(Vec3& out, const Vec3& in) const;
 };
 
 inline Matrix4::Matrix4(const Matrix4& other)
@@ -302,6 +314,41 @@ inline void Matrix4::getTransposed(Matrix4& dest) const
     dest[13] = M[7];
     dest[14] = M[11];
     dest[15] = M[15];
+}
+
+inline void Matrix4::rotateVect(Vec3& vect) const
+{
+    Vec3 tmp = vect;
+    vect[0] = tmp.X()*M[0] + tmp.Y()*M[4] + tmp.Z()*M[8];
+    vect[1] = tmp.X()*M[1] + tmp.Y()*M[5] + tmp.Z()*M[9];
+    vect[2] = tmp.X()*M[2] + tmp.Y()*M[6] + tmp.Z()*M[10];
+}
+
+inline void Matrix4::rotateVect(Vec3& out, const Vec3& in) const
+{
+    out[0] = in.X()*M[0] + in.Y()*M[4] + in.Z()*M[8];
+    out[1] = in.X()*M[1] + in.Y()*M[5] + in.Z()*M[9];
+    out[2] = in.X()*M[2] + in.Y()*M[6] + in.Z()*M[10];
+}
+
+inline void Matrix4::transformVect(Vec3& vect) const
+{
+    float vector[3];
+
+    vector[0] = vect.X()*M[0] + vect.Y()*M[4] + vect.Z()*M[8] + M[12];
+    vector[1] = vect.X()*M[1] + vect.Y()*M[5] + vect.Z()*M[9] + M[13];
+    vector[2] = vect.X()*M[2] + vect.Y()*M[6] + vect.Z()*M[10] + M[14];
+
+    vect[0] = vector[0];
+    vect[1] = vector[1];
+    vect[2] = vector[2];
+}
+
+inline void Matrix4::transformVect(Vec3& out, const Vec3& in) const
+{
+    out[0] = in.X()*M[0] + in.Y()*M[4] + in.Z()*M[8] + M[12];
+    out[1] = in.X()*M[1] + in.Y()*M[5] + in.Z()*M[9] + M[13];
+    out[2] = in.X()*M[2] + in.Y()*M[6] + in.Z()*M[10] + M[14];
 }
 
 }

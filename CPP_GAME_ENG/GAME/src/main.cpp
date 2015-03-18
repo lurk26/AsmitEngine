@@ -22,7 +22,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     if (Engine::init())
     {
         Cheesy::Create("Cheesy Test App", 640, 480, false, false);
+        
         Engine::BasicRenderer::init();
+        Engine::Physics::PhysicsHandler::create();
 
         Engine::UnitTest_Matrix();
 
@@ -59,12 +61,12 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
         // using auto pointer. this should prevent memory leak on myptr;
         Engine::AutoPtr <int> test_autoptr(myptr);
         // -------------------------------------------
-                
+
 		MonsterChase * game = new MonsterChase();
 		game->beginChase();
 		delete game;
 
-
+        Engine::Physics::PhysicsHandler::destroy();
         Engine::BasicRenderer::shutdown();
         Cheesy::Shutdown();
         Engine::shutdown();

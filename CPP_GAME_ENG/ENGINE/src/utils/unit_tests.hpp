@@ -1,6 +1,9 @@
 #include "Matrix4.h"
 #include "Console\ConsolePrint.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h> 
+
 namespace Engine
 {
 
@@ -53,8 +56,26 @@ namespace Engine
         if (Matrix4::isEqual(test,e_inv))
             DEBUG_PRINT("Inverse test pass\n");
 
-        int t;
-        std::cin >> t;
+
+        Matrix4 A;
+        A.makeIdentity();
+        A.setTranslation(Vec3(1, 1, 0));
+        //A.setRotationAxisRadians(M_PI_2, Vec3(0, 0, 1));
+
+        Matrix4 B;
+        B.makeIdentity();
+        B.setTranslation(Vec3(-4, -2, 0));
+        B.setRotationAxisRadians(-M_PI_2, Vec3(0, 0, 1));
+
+
+        Vec3 pointA(1, 0, 0);
+
+        Vec3 pointAinB;
+        Matrix4 B_inv;
+        B.getInverse(B_inv);
+       
+         (A*B_inv).transformVect(pointAinB, pointA);
+
     }
 
 }

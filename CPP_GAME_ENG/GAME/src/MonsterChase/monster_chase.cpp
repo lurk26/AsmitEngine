@@ -7,6 +7,7 @@
 
 #include "timing\Timing.h"
 #include "utils\RingBuffer.hpp"
+#include "physics\PhysicsHandler.h"
 #include "render\BasicRenderer.h"
 
 
@@ -20,6 +21,9 @@ MonsterChase::MonsterChase()
 {
     srand((unsigned int)time(0));
 
+    // Set input callback
+    Cheesy::setKeyDownCallback(PlayerController::setInput);
+    Cheesy::setKeyPressCallback(PlayerController::releaseInput);
     //Begin Monster Chase
     std::cout << "Enter the number of monsters: ";
    // std::cin >> m_num_monsters;
@@ -87,6 +91,7 @@ Unit* MonsterChase::makeUnit(LuaPlus::LuaObject lua_actor)
     }
     unit->setController(controller);
     unit->setTexture(SpriteTexture.GetString());
+    unit->setCollider(Vec3(0, 0, 0), Vec3(25.f, 25.f, 0.f));
 
     return unit;
 }
@@ -255,6 +260,7 @@ void MonsterChase::beginChase()
 
         //showCurrentLocations();
 
+        Engine::Physics::PhysicsHandler::get()->checkAllCollisions();
         Engine::BasicRenderer::get()->update(dt);
 
     }

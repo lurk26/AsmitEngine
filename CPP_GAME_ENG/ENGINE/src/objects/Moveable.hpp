@@ -23,6 +23,7 @@ namespace Engine
 
         const Vec3&        getVelocity() const             { return m_velocity; }
         const Vec3         getPosition() const             { return m_trans.getTranslation(); }
+        const Transform&   getTrans() const                { return m_trans; }
         const bool         isActive()    const             { return m_is_active; }
 
         void        setPosition(const Vec3& pos)    { m_trans.setTranslation(pos); }

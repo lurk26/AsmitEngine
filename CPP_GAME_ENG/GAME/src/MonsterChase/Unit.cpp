@@ -2,6 +2,8 @@
 
 #include "objects\Moveable.hpp"
 #include "render\BasicRenderer.h"
+#include "physics\OBBCollisionObject.h"
+#include "physics\PhysicsHandler.h"
 
 #include "controller\controller.hpp"
 
@@ -53,4 +55,9 @@ void Unit::setTexture(std::string s)
 {
     using namespace Engine;
     BasicRenderer::get()->addRenderable(m_body, s);
+}
+
+void Unit::setCollider(Vec3 center, Vec3 extents)
+{
+    Engine::Physics::PhysicsHandler::get()->addCollider(m_body, center, extents);
 }

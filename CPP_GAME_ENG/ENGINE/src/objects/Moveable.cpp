@@ -4,6 +4,7 @@ namespace Engine{
 
 Moveable::Moveable()
 {
+    m_trans.makeIdentity();
 }
 
 

@@ -12,6 +12,7 @@
 
 #include "memory\Allocators.h"
 #include "render\BasicRenderer.h"
+#include "physics\PhysicsHandler.h"
 #include "utils\AutoPtr\AutoPtr.h"
 #include "utils\FloatHelpers.h"
 #include "utils\NamedBitSet\NamedBitSet.h"

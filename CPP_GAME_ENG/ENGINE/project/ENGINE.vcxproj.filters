@@ -49,6 +49,9 @@
     <Filter Include="Header Files\render">
       <UniqueIdentifier>{c68efd2f-4d89-428c-9348-a9848238aca7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\physics">
+      <UniqueIdentifier>{637982ec-ff2f-4945-a9f4-e70fbd9f7001}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Engine.cpp">
@@ -98,6 +101,15 @@
     </ClCompile>
     <ClCompile Include="..\src\utils\unit_tests.hpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\physics\RigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\physics\PhysicsHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\physics\OBBCollisionObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +173,6 @@
     <ClInclude Include="..\src\render\BasicRenderer.h">
       <Filter>Header Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\render\Renderable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\utils\NamedBitSet\NamedBitSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -181,6 +190,18 @@
     </ClInclude>
     <ClInclude Include="..\src\utils\Matrix4.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\RigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\OBBCollisionObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\render\Renderable.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\PhysicsHandler.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

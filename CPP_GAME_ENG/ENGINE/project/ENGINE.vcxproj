@@ -89,7 +89,8 @@
     <ClCompile Include="..\src\memory\HeapAllocator.cpp" />
     <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp" />
     <ClCompile Include="..\src\objects\Moveable.cpp" />
-    <ClCompile Include="..\src\physics\CollisionObject.cpp" />
+    <ClCompile Include="..\src\physics\OBBCollisionObject.cpp" />
+    <ClCompile Include="..\src\physics\PhysicsHandler.cpp" />
     <ClCompile Include="..\src\physics\RigidBody.cpp" />
     <ClCompile Include="..\src\render\BasicRenderer.cpp" />
     <ClCompile Include="..\src\render\Renderable.cpp" />
@@ -109,7 +110,8 @@
     <ClInclude Include="..\src\memory\HeapAllocator.hpp" />
     <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp" />
     <ClInclude Include="..\src\objects\Moveable.hpp" />
-    <ClInclude Include="..\src\physics\CollisionObject.h" />
+    <ClInclude Include="..\src\physics\OBBCollisionObject.h" />
+    <ClInclude Include="..\src\physics\PhysicsHandler.h" />
     <ClInclude Include="..\src\physics\RigidBody.h" />
     <ClInclude Include="..\src\render\BasicRenderer.h" />
     <ClInclude Include="..\src\render\Renderable.h" />

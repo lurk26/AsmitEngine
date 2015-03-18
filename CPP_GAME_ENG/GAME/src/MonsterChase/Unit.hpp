@@ -33,6 +33,8 @@ public:
 
     void            setTexture(std::string s);
 
+    void            setCollider(Vec3 center, Vec3 extents);
+
     void            update( float dt );
     
 };

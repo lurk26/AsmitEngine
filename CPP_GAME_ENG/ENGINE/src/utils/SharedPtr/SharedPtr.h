@@ -20,6 +20,7 @@ namespace Engine
         ~SharedPtr();
 
         T* operator->();
+        const T* operator->() const;
         T& operator*();
 
         // release();

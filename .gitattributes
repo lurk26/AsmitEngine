@@ -28,8 +28,10 @@ CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.hpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.cpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.hpp -text
-CPP_GAME_ENG/ENGINE/src/physics/CollisionObject.cpp -text
-CPP_GAME_ENG/ENGINE/src/physics/CollisionObject.h -text
+CPP_GAME_ENG/ENGINE/src/physics/OBBCollisionObject.cpp -text
+CPP_GAME_ENG/ENGINE/src/physics/OBBCollisionObject.h -text
+CPP_GAME_ENG/ENGINE/src/physics/PhysicsHandler.cpp -text
+CPP_GAME_ENG/ENGINE/src/physics/PhysicsHandler.h -text
 CPP_GAME_ENG/ENGINE/src/physics/RigidBody.cpp -text
 CPP_GAME_ENG/ENGINE/src/physics/RigidBody.h -text
 CPP_GAME_ENG/ENGINE/src/render/BasicRenderer.cpp -text

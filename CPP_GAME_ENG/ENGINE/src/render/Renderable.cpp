@@ -23,11 +23,7 @@ Renderable::Renderable(Engine::SharedPtr<Moveable> object_ptr,
     Cheesy::Texture * texture = Cheesy::Texture::CreateTextureFromFile(texturefilepath.c_str());
     assert(texture);
 
-    Vec3 pos_vec3 = m_pMoveable->getPosition();
-    struct Cheesy::Point2D pos(pos_vec3.getX(), pos_vec3.getY());
-
-
-    m_pSprite = Cheesy::Sprite::Create(pos, 0.1f, size, White, *texture, UVs);
+    m_pSprite = Cheesy::Sprite::Create(center, 0.1f, size, White, *texture, UVs);
     assert(m_pSprite);
 
     texture->Release();

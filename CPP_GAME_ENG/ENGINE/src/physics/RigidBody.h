@@ -1,5 +1,5 @@
 #pragma once
-#include "physics\CollisionObject.h"
+#include "physics\OBBCollisionObject.h"
 
 namespace Engine
 {
@@ -11,7 +11,7 @@ namespace Physics
     {
     private:
         
-        CollisionObject * m_collider;
+        OBBCollisionObject * m_collider;
 
     public:
         RigidBody();
