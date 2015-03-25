@@ -5,6 +5,11 @@ namespace Engine{
 Moveable::Moveable()
 {
     m_trans.makeIdentity();
+    m_rpy = Vec3(0,0,0);
+    m_velocity = Vec3(0, 0, 0);
+    m_position = Vec3(0, 0, 0);
+    m_old_velocity = Vec3(0, 0, 0);
+    m_is_active = 0;
 }
 
 

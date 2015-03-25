@@ -4,6 +4,7 @@
 #include "render\BasicRenderer.h"
 #include "physics\OBBCollisionObject.h"
 #include "physics\PhysicsHandler.h"
+#include "utils\Matrix4.h"
 
 #include "controller\controller.hpp"
 
@@ -49,6 +50,19 @@ void Unit::update(float dt)
 {
     m_controller->update(dt);
     m_body->update(dt);
+}
+
+void Unit::applyRotationZ(float rad)
+{
+    Vec3 current_rot = m_body->getRotation();
+    Vec3 new_rot = current_rot + Vec3(0, 0, rad);
+    m_body->setRotation( new_rot );
+
+//    Engine::Matrix4 rot;
+//    rot.setRotationRadians(Vec3(0, 0, rad));
+
+//    Engine::Matrix4 trans = m_body->getTrans();
+//    m_body->setTrans(trans*rot);
 }
 
 void Unit::setTexture(std::string s)

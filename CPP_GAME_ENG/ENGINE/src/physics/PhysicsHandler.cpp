@@ -1,5 +1,6 @@
 #include "PhysicsHandler.h"
 #include "utils\Console\ConsolePrint.h"
+#include "render\BasicRenderer.h"
 
 namespace Engine
 {
@@ -41,7 +42,10 @@ void   PhysicsHandler::checkAllCollisions()
                                             m_colliders[i], Vec3(),
                                             m_colliders[j], Vec3());
 
-            if (collision) DEBUG_PRINT("Collisoin detected!\n");
+            if (collision) 
+                BasicRenderer::get()->setClearColor(Cheesy::ColorRGBA(200,50,90,0));
+            else
+                BasicRenderer::get()->setClearColor(Cheesy::ColorRGBA(100, 200, 50, 0));
         }
     }
 }

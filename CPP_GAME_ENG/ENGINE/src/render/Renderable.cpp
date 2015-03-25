@@ -3,6 +3,7 @@
 #include "objects\Moveable.hpp"
 
 #include "utils\Vec3.hpp"
+#include "utils\Matrix4.h"
 
 #include "string"
 
@@ -39,9 +40,11 @@ Renderable::~Renderable()
 void Renderable::draw()
 {
     Vec3 pos_vec3 = m_pMoveable->getPosition();
-    
+    //Transform trans = m_pMoveable->getTrans();
+    Vec3 rot_rpy = m_pMoveable->getRotation();
+
     struct Cheesy::Point2D pos(pos_vec3.getX(), pos_vec3.getY());
 
-    m_pSprite->Draw(pos, 0.0f /* rotation */);
+    m_pSprite->Draw(pos, rot_rpy.Z() /* rotation */);
 }
 }

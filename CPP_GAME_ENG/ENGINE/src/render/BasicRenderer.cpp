@@ -8,6 +8,7 @@ BasicRenderer* BasicRenderer::m_basic_renderer = nullptr;
 BasicRenderer::BasicRenderer()
 {
     m_renderables.clear();
+    m_ClearColor = { 50, 50, 255, 0 };
 }
 
 
@@ -44,9 +45,7 @@ void BasicRenderer::update(float dt)
 
     Cheesy::Service(bQuit);
 
-    struct Cheesy::ColorRGBA ClearColor(50, 50, 255, 0);
-
-    if (!bQuit && Cheesy::BeginFrame(ClearColor))
+    if (!bQuit && Cheesy::BeginFrame(m_ClearColor))
     {
         for (unsigned int i = 0; i < m_renderables.size(); i++)
         {

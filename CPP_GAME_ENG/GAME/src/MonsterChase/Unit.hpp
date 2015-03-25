@@ -27,6 +27,7 @@ public:
     const Vec3      getVelocity()                   { return m_body->getVelocity(); }
 
     void            setXYZ(const Vec3& v)           { m_body->setPosition(v); }
+    void            applyRotationZ(float rad);
     void            setVelocity(const Vec3& v)      { m_body->setVelocity(v); }
 
     void            setController(Controller* c)    { m_controller = c; }

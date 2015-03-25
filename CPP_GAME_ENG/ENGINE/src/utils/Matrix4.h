@@ -57,6 +57,7 @@ public:
     // Make rotation matrix from euler angles
     inline Matrix4&  setRotationDegrees(const Vec3& rotation);
     inline Matrix4&  setRotationRadians(const Vec3& rotation);
+    inline Vec3      getRotationDegrees() const;
 
     inline Matrix4& setRotationAxisRadians(const float& angle, const Vec3& axis);
 
@@ -194,6 +195,7 @@ inline Matrix4&  Matrix4::setRotationRadians(const Vec3& rotation)
 
     return *this;
 }
+
 
 inline Matrix4&  Matrix4::setRotationAxisRadians(const float& angle, const Vec3& axis)
 {

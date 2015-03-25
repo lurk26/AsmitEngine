@@ -39,7 +39,10 @@ void PlayerController::update( float dt )
 
         case 'D': player_pos.setX(player_pos.getX() + 3);
             break;
-
+        case 'K': m_unit->applyRotationZ(1.6f);
+            break;
+        case 'L': m_unit->applyRotationZ(-1.6f);
+            break;
         }
         m_unit->setXYZ(player_pos);
         time_since_last = 0.0f;

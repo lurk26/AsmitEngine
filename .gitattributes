@@ -158,6 +158,8 @@ CPP_GAME_ENG/GAME/project/GAME.vcxproj -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.filters -text
 CPP_GAME_ENG/GAME/project/GAME.vcxproj.user -text
 CPP_GAME_ENG/GAME/project/image/game_enemy.bmp -text
+CPP_GAME_ENG/GAME/project/image/game_enemy_o.bmp -text
+CPP_GAME_ENG/GAME/project/image/game_guy-o.bmp -text
 CPP_GAME_ENG/GAME/project/image/game_guy.bmp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.cpp -text
 CPP_GAME_ENG/GAME/src/CacheSimulator/CacheSimulator.hpp -text
