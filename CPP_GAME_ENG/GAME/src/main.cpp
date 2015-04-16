@@ -9,7 +9,6 @@
 #include "MonsterChase\monster_chase.hpp"
 
 #include <Cheesy.h>
-
 #include <iostream>
 
 
