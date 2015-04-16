@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{37C4F959-E2E9-4746-B6BC-9AC535953F77}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ENGINE</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\build\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(DXSDK_DIR)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(DXSDK_DIR)\Include;$(IncludePath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\build\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\build\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Exports\Cheesy;$(ProjectDir)\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Exports\Cheesy;$(ProjectDir)\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Engine.cpp" />
+    <ClCompile Include="..\src\memory\Allocators.cpp" />
+    <ClCompile Include="..\src\memory\BitField.cpp" />
+    <ClCompile Include="..\src\memory\BlockAllocators.cpp" />
+    <ClCompile Include="..\src\memory\HeapAllocator.cpp" />
+    <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp" />
+    <ClCompile Include="..\src\objects\Moveable.cpp" />
+    <ClCompile Include="..\src\physics\OBBCollisionObject.cpp" />
+    <ClCompile Include="..\src\physics\PhysicsHandler.cpp" />
+    <ClCompile Include="..\src\physics\RigidBody.cpp" />
+    <ClCompile Include="..\src\render\BasicRenderer.cpp" />
+    <ClCompile Include="..\src\render\Renderable.cpp" />
+    <ClCompile Include="..\src\timing\Timing.Win32.cpp" />
+    <ClCompile Include="..\src\utils\Assert\Assert.Win32.cpp" />
+    <ClCompile Include="..\src\utils\Console\ConsolePrint.Win32.cpp" />
+    <ClCompile Include="..\src\utils\HashedString\HashedString.cpp" />
+    <ClCompile Include="..\src\utils\StringPool\StringPool.cpp" />
+    <ClCompile Include="..\src\utils\unit_tests.hpp" />
+    <ClCompile Include="..\src\utils\Vec3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Engine.hpp" />
+    <ClInclude Include="..\src\memory\Allocators.h" />
+    <ClInclude Include="..\src\memory\BitField.hpp" />
+    <ClInclude Include="..\src\memory\BlockAllocators.hpp" />
+    <ClInclude Include="..\src\memory\HeapAllocator.hpp" />
+    <ClInclude Include="..\src\memory\SmallBlockAllocator.hpp" />
+    <ClInclude Include="..\src\objects\Moveable.hpp" />
+    <ClInclude Include="..\src\physics\OBBCollisionObject.h" />
+    <ClInclude Include="..\src\physics\PhysicsHandler.h" />
+    <ClInclude Include="..\src\physics\RigidBody.h" />
+    <ClInclude Include="..\src\render\BasicRenderer.h" />
+    <ClInclude Include="..\src\render\Renderable.h" />
+    <ClInclude Include="..\src\timing\Timing.h" />
+    <ClInclude Include="..\src\utils\Assert\Assert.h" />
+    <ClInclude Include="..\src\utils\AutoPtr\AutoPtr-inl.h" />
+    <ClInclude Include="..\src\utils\AutoPtr\AutoPtr.h" />
+    <ClInclude Include="..\src\utils\Console\ConsolePrint.h" />
+    <ClInclude Include="..\src\utils\FloatHelpers.h" />
+    <ClInclude Include="..\src\utils\HashedString\HashedString-inl.h" />
+    <ClInclude Include="..\src\utils\HashedString\HashedString.h" />
+    <ClInclude Include="..\src\utils\Matrix4.h" />
+    <ClInclude Include="..\src\utils\NamedBitSet\NamedBitSet-inl.h" />
+    <ClInclude Include="..\src\utils\NamedBitSet\NamedBitSet.h" />
+    <ClInclude Include="..\src\utils\RingBuffer.hpp" />
+    <ClInclude Include="..\src\utils\SharedPtr\SharedPtr-inl.h" />
+    <ClInclude Include="..\src\utils\SharedPtr\SharedPtr.h" />
+    <ClInclude Include="..\src\utils\StringPool\StringPool.h" />
+    <ClInclude Include="..\src\utils\Target\Target.h" />
+    <ClInclude Include="..\src\utils\Target\Target.Win32.h" />
+    <ClInclude Include="..\src\utils\Vec3.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\timing\Timing.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
