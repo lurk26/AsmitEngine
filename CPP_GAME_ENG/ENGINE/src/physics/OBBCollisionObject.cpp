@@ -17,8 +17,11 @@ namespace Physics
     {
     }
 
-    bool OBBCollisionObject::checkOBBIntersection(const OBBCollisionObject& box_A, const Vec3& vel_A, const OBBCollisionObject& box_B, const Vec3& vel_B)
+    bool OBBCollisionObject::checkOBBIntersection(const OBBCollisionObject& box_A, const Vec3& vel_A, const OBBCollisionObject& box_B, const Vec3& vel_B )
     {
+
+        // TODO : 1. Make this faster.  2. Check for edge collisions! 3. Generate proper manifold
+
         const Transform A_trans = box_A.getTrans();
         const Transform B_trans = box_B.getTrans();
 

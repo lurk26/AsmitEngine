@@ -13,7 +13,7 @@ namespace Engine
 {
 namespace Physics
 {
-    class OBBCollisionObject
+    class OBBCollisionObject 
     {
     private:
         // The AABB should ideally be moved to its own class
@@ -30,6 +30,8 @@ namespace Physics
     public:
         OBBCollisionObject(Engine::SharedPtr<Moveable> object_ptr, Vec3 center, Vec3 extents);
         ~OBBCollisionObject();
+
+        Engine::SharedPtr<Engine::Moveable> getObject() { return m_object_ptr; }
 
         const Transform& getTrans() const { return m_object_ptr->getTrans(); }
 

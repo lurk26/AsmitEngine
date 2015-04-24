@@ -2,16 +2,24 @@
 #include <vector>
 #include "utils\SharedPtr\SharedPtr.h"
 #include "OBBCollisionObject.h"
+#include "RigidBody.h"
 
 namespace Engine
 {
 namespace Physics
 {
 
+    struct CollisionInfo
+    {
+        Physics::OBBCollisionObject* boxA;
+        Physics::OBBCollisionObject* boxB;
+        Vec3 collision_normal;
+    };
+
 class PhysicsHandler
 {
 private:
-    std::vector<Physics::OBBCollisionObject> m_colliders;
+    std::vector<Physics::RigidBody> m_bodies;
 
     static PhysicsHandler* m_physics_handler;
     PhysicsHandler();
@@ -23,7 +31,7 @@ public:
 
     static PhysicsHandler* get()   { return m_physics_handler;  }
 
-    void    addCollider(SharedPtr<Moveable> obj_ptr, Vec3 aabb_center, Vec3 aabb_extents);
+    void    addRigidBody(Physics::RigidBody);
     void    checkAllCollisions();
 };
 

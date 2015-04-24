@@ -71,6 +71,12 @@ void Unit::setTexture(std::string s)
     BasicRenderer::get()->addRenderable(m_body, s);
 }
 
+
+void Unit::addRigidBody()
+{
+    Engine::Physics::PhysicsHandler::get()->addRigidBody()
+}
+
 void Unit::setCollider(Vec3 center, Vec3 extents)
 {
     Engine::Physics::PhysicsHandler::get()->addCollider(m_body, center, extents);

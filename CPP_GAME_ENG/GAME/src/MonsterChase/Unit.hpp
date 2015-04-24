@@ -34,6 +34,7 @@ public:
 
     void            setTexture(std::string s);
 
+    void            addBody()
     void            setCollider(Vec3 center, Vec3 extents);
 
     void            update( float dt );
