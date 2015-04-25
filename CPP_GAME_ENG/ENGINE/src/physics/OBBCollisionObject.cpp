@@ -4,7 +4,7 @@ namespace Engine
 namespace Physics
 {
 
-    OBBCollisionObject::OBBCollisionObject(Engine::SharedPtr<Moveable> object_ptr, 
+    OBBCollisionObject::OBBCollisionObject(Engine::SharedPtr<GameObject> object_ptr, 
         Vec3 center, Vec3 extents) :
         m_object_ptr(object_ptr),
         m_aabb(center,extents)

@@ -1,6 +1,6 @@
 #include "Renderable.h"
 
-#include "objects\Moveable.hpp"
+#include "objects\GameObject.hpp"
 
 #include "utils\Vec3.hpp"
 #include "utils\Matrix4.h"
@@ -9,9 +9,9 @@
 
 namespace Engine{
 
-Renderable::Renderable(Engine::SharedPtr<Moveable> object_ptr, 
+Renderable::Renderable(Engine::SharedPtr<GameObject> object_ptr, 
                         const std::string& texturefilepath) :
-                        m_pMoveable(object_ptr)
+                        m_pGameObject(object_ptr)
 {
     
     // some defaults
@@ -39,9 +39,9 @@ Renderable::~Renderable()
 
 void Renderable::draw()
 {
-    Vec3 pos_vec3 = m_pMoveable->getPosition();
-    //Transform trans = m_pMoveable->getTrans();
-    Vec3 rot_rpy = m_pMoveable->getRotation();
+    Vec3 pos_vec3 = m_pGameObject->getPosition();
+    //Transform trans = m_pGameObject->getTrans();
+    Vec3 rot_rpy = m_pGameObject->getRotation();
 
     struct Cheesy::Point2D pos(pos_vec3.getX(), pos_vec3.getY());
 

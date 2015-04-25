@@ -2,7 +2,7 @@
 
 #include <utils\SharedPtr\SharedPtr.h>
 
-#include <objects\Moveable.hpp>
+#include <objects\GameObject.hpp>
 
 #include "Cheesy.h"
 #include "Sprite.h"
@@ -13,22 +13,22 @@
 
 namespace Engine{
 
-class Engine::Moveable;
+class Engine::GameObject;
 
 class Renderable
 {
 public:
-    Renderable(Engine::SharedPtr<Engine::Moveable> object_ptr, const std::string & texturefilepath);
+    Renderable(Engine::SharedPtr<Engine::GameObject> object_ptr, const std::string & texturefilepath);
 
     ~Renderable();
 
     void draw();
 
-    bool isValid()      { return m_pMoveable->isActive(); }
+    bool isValid()      { return m_pGameObject->isActive(); }
 
 private:
 
-    Engine::SharedPtr<Engine::Moveable> m_pMoveable;
+    Engine::SharedPtr<Engine::GameObject> m_pGameObject;
     Cheesy::Sprite * m_pSprite;
 
 

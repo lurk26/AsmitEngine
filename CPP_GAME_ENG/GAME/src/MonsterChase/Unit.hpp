@@ -2,7 +2,7 @@
 #ifndef HEADER_UNIT_HPP
 #define HEADER_UNIT_HPP
 
-#include "objects/Moveable.hpp"
+#include "objects/GameObject.hpp"
 
 #include "utils/SharedPtr/SharedPtr.h"
 
@@ -14,7 +14,7 @@ class Unit
 {
 
 private:
-    Engine::SharedPtr<Engine::Moveable> m_body;
+    Engine::SharedPtr<Engine::GameObject> m_body;
     Controller* m_controller;
 public:
 	Unit();

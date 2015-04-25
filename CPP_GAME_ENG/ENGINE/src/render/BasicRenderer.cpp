@@ -30,9 +30,9 @@ void BasicRenderer::shutdown()
         delete m_basic_renderer;
 }
 
-bool BasicRenderer::addRenderable(Engine::SharedPtr<Moveable> moveable_ptr, std::string & texture_file_path)
+bool BasicRenderer::addRenderable(Engine::SharedPtr<GameObject> GameObject_ptr, std::string & texture_file_path)
 {
-    Renderable * new_renderable_object = new Renderable(moveable_ptr, texture_file_path);
+    Renderable * new_renderable_object = new Renderable(GameObject_ptr, texture_file_path);
     assert(new_renderable_object);
     m_renderables.push_back(new_renderable_object);
     return true;

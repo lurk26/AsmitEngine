@@ -1,6 +1,6 @@
 #include "Unit.hpp"
 
-#include "objects\Moveable.hpp"
+#include "objects\GameObject.hpp"
 #include "render\BasicRenderer.h"
 #include "physics\OBBCollisionObject.h"
 #include "physics\PhysicsHandler.h"
@@ -14,7 +14,7 @@
 Unit::Unit()
 {
     using namespace Engine;
-    m_body = Engine::SharedPtr<Moveable>(new Moveable());
+    m_body = Engine::SharedPtr<GameObject>(new GameObject());
     m_body->setPosition(Vec3(0, 0, 0));
     m_body->setVelocity(Vec3(0, 0, 0));
     m_body->setActive(true);
@@ -23,7 +23,7 @@ Unit::Unit()
 Unit::Unit(float x, float y)
 {
     using namespace Engine;
-    m_body = Engine::SharedPtr<Moveable>(new Moveable());
+    m_body = Engine::SharedPtr<GameObject>(new GameObject());
     m_body->setPosition(Vec3(x, y, 0.0f));
     m_body->setVelocity(Vec3(0.0f, 0.0f, 0.0f));
     m_body->setActive(true);
@@ -32,7 +32,7 @@ Unit::Unit(float x, float y)
 Unit::Unit(Vec3 pos)
 {
     using namespace Engine;
-    m_body = Engine::SharedPtr<Moveable>(new Moveable());
+    m_body = Engine::SharedPtr<GameObject>(new GameObject());
     m_body->setPosition(pos);
     m_body->setVelocity(Vec3(0.0f, 0.0f, 0.0f));
     m_body->setActive(true);

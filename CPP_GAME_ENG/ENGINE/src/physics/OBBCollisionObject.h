@@ -3,7 +3,7 @@
 #include "utils\Matrix4.h"
 #include "utils\SharedPtr\SharedPtr.h"
 
-#include "objects\Moveable.hpp"
+#include "objects\GameObject.hpp"
 
 /* The Collision Object class represents a bounding volume that is checked for collision.
  * This can be a sphere, an AABB, an ellipsoid etc. For now we just have an AABB.
@@ -25,13 +25,13 @@ namespace Physics
         };
         AABB    m_aabb;
         
-        Engine::SharedPtr<Engine::Moveable> m_object_ptr;
+        Engine::SharedPtr<Engine::GameObject> m_object_ptr;
 
     public:
-        OBBCollisionObject(Engine::SharedPtr<Moveable> object_ptr, Vec3 center, Vec3 extents);
+        OBBCollisionObject(Engine::SharedPtr<GameObject> object_ptr, Vec3 center, Vec3 extents);
         ~OBBCollisionObject();
 
-        Engine::SharedPtr<Engine::Moveable> getObject() { return m_object_ptr; }
+        Engine::SharedPtr<Engine::GameObject> getObject() { return m_object_ptr; }
 
         const Transform& getTrans() const { return m_object_ptr->getTrans(); }
 

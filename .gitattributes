@@ -15,13 +15,14 @@ CPP_GAME_ENG/ENGINE/src/memory/HeapAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/HeapAllocator.hpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.cpp -text
 CPP_GAME_ENG/ENGINE/src/memory/SmallBlockAllocator.hpp -text
+CPP_GAME_ENG/ENGINE/src/objects/GameObject.cpp -text
+CPP_GAME_ENG/ENGINE/src/objects/GameObject.hpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.cpp -text
 CPP_GAME_ENG/ENGINE/src/objects/Moveable.hpp -text
 CPP_GAME_ENG/ENGINE/src/physics/CollisionFixture.cpp -text
 CPP_GAME_ENG/ENGINE/src/physics/CollisionFixture.h -text
 CPP_GAME_ENG/ENGINE/src/physics/OBBCollisionObject.cpp -text
 CPP_GAME_ENG/ENGINE/src/physics/OBBCollisionObject.h -text
-CPP_GAME_ENG/ENGINE/src/physics/OBBFixture.cpp -text
 CPP_GAME_ENG/ENGINE/src/physics/OBBFixture.h -text
 CPP_GAME_ENG/ENGINE/src/physics/PhysicsBody.cpp -text
 CPP_GAME_ENG/ENGINE/src/physics/PhysicsBody.h -text

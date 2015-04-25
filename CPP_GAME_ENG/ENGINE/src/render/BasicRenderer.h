@@ -7,7 +7,7 @@
 
 namespace Engine{
 
-class Moveable;
+class GameObject;
 class BasicRenderer
 {
 private:
@@ -24,7 +24,7 @@ public:
     static bool    init();
     static void    shutdown();
 
-    bool    addRenderable(Engine::SharedPtr<Moveable> moveable_ptr, std::string & texture_file_path);
+    bool    addRenderable(Engine::SharedPtr<GameObject> GameObject_ptr, std::string & texture_file_path);
 
     void    update(float dt);
     void    setClearColor(struct Cheesy::ColorRGBA c_c) { m_ClearColor = c_c; }
