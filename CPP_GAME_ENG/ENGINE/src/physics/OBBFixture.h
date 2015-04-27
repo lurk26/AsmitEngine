@@ -3,6 +3,7 @@
 #include "CollisionFixture.h"
 #include "objects\GameObject.hpp"
 #include "physics\Shapes.h"
+#include "PhysicsBody.h"
 #include "utils\SharedPtr\SharedPtr.h"
 
 namespace Engine
@@ -10,26 +11,17 @@ namespace Engine
 namespace Physics
 {
 
-
-
 class OBBFixture: public CollisionFixture
 {
 
 private:
-    AABB    m_aabb;
-
+    AABB         m_aabb;
+    PhysicsBody* m_parent;
     
 
 public:
-    OBBFixture();
+    OBBFixture(Vec3 center, Vec3 extents);
     ~OBBFixture();
-
-
-public:
-    OBBCollisionObject(Engine::SharedPtr<GameObject> object_ptr, Vec3 center, Vec3 extents);
-    ~OBBCollisionObject();
-
-    Engine::SharedPtr<Engine::GameObject> getObject() { return m_object_ptr; }
 
     const Transform& getTrans() const { return m_object_ptr->getTrans(); }
 };

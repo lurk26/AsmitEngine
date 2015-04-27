@@ -60,9 +60,6 @@
     <ClCompile Include="..\src\utils\Vec3.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\objects\Moveable.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\memory\SmallBlockAllocator.cpp">
       <Filter>Source Files\memory</Filter>
     </ClCompile>
@@ -111,6 +108,12 @@
     <ClCompile Include="..\src\physics\OBBCollisionObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\physics\PhysicsBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objects\GameObject.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Engine.hpp">
@@ -118,9 +121,6 @@
     </ClInclude>
     <ClInclude Include="..\src\utils\Vec3.hpp">
       <Filter>Header Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\objects\Moveable.hpp">
-      <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="..\src\memory\BitField.hpp">
       <Filter>Header Files</Filter>
@@ -202,6 +202,21 @@
     </ClInclude>
     <ClInclude Include="..\src\physics\PhysicsHandler.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\PhysicsBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\CollisionFixture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\OBBFixture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\physics\Shapes.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objects\GameObject.hpp">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

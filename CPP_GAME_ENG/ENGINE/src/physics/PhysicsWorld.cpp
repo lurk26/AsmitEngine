@@ -1,4 +1,4 @@
-#include "PhysicsHandler.h"
+#include "PhysicsWorld.h"
 #include "utils\Console\ConsolePrint.h"
 #include "render\BasicRenderer.h"
 
@@ -7,31 +7,31 @@ namespace Engine
 namespace Physics
 {
 
-    PhysicsHandler* PhysicsHandler::m_physics_handler = nullptr;
+    PhysicsWorld* PhysicsWorld::m_physics_handler = nullptr;
 
-PhysicsHandler::PhysicsHandler()
+PhysicsWorld::PhysicsWorld()
 {
     m_bodies.clear();
 }
 
 
-PhysicsHandler::~PhysicsHandler()
+PhysicsWorld::~PhysicsWorld()
 {
     m_physics_handler = nullptr;
 }
 
-void PhysicsHandler::destroy()
+void PhysicsWorld::destroy()
 {
     delete m_physics_handler;
 }
 
-void PhysicsHandler::addRigidBody(Physics::RigidBody body)
+void PhysicsWorld::addPhysicsBody(PhysicsBody& body)
 {
-
     m_bodies.push_back(body);
 }
 
-void   PhysicsHandler::checkAllCollisions()
+CollisionFixture* PhysicsWorld::addCollisionFixture(CollisionFixture )
+void   PhysicsWorld::checkAllCollisions()
 {
     for (int i = 0; i < (int)m_bodies.size() - 1 ; i++)
     {
